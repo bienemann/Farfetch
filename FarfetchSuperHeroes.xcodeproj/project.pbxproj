@@ -15,6 +15,8 @@
 		9D52293520E2C2460091A227 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D52293320E2C2460091A227 /* LaunchScreen.storyboard */; };
 		9D52294020E2C2470091A227 /* FarfetchSuperHeroesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52293F20E2C2470091A227 /* FarfetchSuperHeroesTests.swift */; };
 		9D52294C20E2C43C0091A227 /* FSHConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52294B20E2C43C0091A227 /* FSHConstants.swift */; };
+		9D52294E20E2C5480091A227 /* FSHRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52294D20E2C5480091A227 /* FSHRequest.swift */; };
+		9D52295120E2E2790091A227 /* FSHDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52295020E2E2790091A227 /* FSHDispatcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		9D52293F20E2C2470091A227 /* FarfetchSuperHeroesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarfetchSuperHeroesTests.swift; sourceTree = "<group>"; };
 		9D52294120E2C2470091A227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D52294B20E2C43C0091A227 /* FSHConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHConstants.swift; sourceTree = "<group>"; };
+		9D52294D20E2C5480091A227 /* FSHRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHRequest.swift; sourceTree = "<group>"; };
+		9D52295020E2E2790091A227 /* FSHDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHDispatcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +85,7 @@
 		9D52292720E2C2440091A227 /* FarfetchSuperHeroes */ = {
 			isa = PBXGroup;
 			children = (
-				9D52294A20E2C3E80091A227 /* MarvelAPI */,
+				9D52294F20E2E2650091A227 /* Networking */,
 				9D52292820E2C2440091A227 /* AppDelegate.swift */,
 				9D52292A20E2C2440091A227 /* FirstViewController.swift */,
 				9D52292C20E2C2440091A227 /* SecondViewController.swift */,
@@ -103,11 +107,13 @@
 			path = FarfetchSuperHeroesTests;
 			sourceTree = "<group>";
 		};
-		9D52294A20E2C3E80091A227 /* MarvelAPI */ = {
+		9D52294F20E2E2650091A227 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				9D52295020E2E2790091A227 /* FSHDispatcher.swift */,
+				9D52294D20E2C5480091A227 /* FSHRequest.swift */,
 			);
-			path = MarvelAPI;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,7 +219,9 @@
 			files = (
 				9D52292D20E2C2440091A227 /* SecondViewController.swift in Sources */,
 				9D52292920E2C2440091A227 /* AppDelegate.swift in Sources */,
+				9D52295120E2E2790091A227 /* FSHDispatcher.swift in Sources */,
 				9D52292B20E2C2440091A227 /* FirstViewController.swift in Sources */,
+				9D52294E20E2C5480091A227 /* FSHRequest.swift in Sources */,
 				9D52294C20E2C43C0091A227 /* FSHConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
