@@ -13,22 +13,17 @@ public enum FSHNetworkError: Swift.Error {
     case noData
 }
 
-protocol FSHDispatcherProtocol {
-    func dispatch(_ request: FSHRequest,
-                  success: @escaping (Data) -> Void,
-                  failure: @escaping (Error) -> Void)
+struct NetworkConstants {
+    public static let networkQueueName = "com.farfetch.networking"
+    public static let netQueue = DispatchQueue(label: networkQueueName,
+                                    qos: .userInitiated)
 }
 
-struct FSHNetworkDispatcher: FSHDispatcherProtocol {
+class FSHNetworkDispatcher<T: FSHRequestProtocol> {
     
-    static let shared = FSHNetworkDispatcher()
-    static let networkQueueName = "com.farfetch.networking"
-    static let netQueue = DispatchQueue(label: networkQueueName,
-                                        qos: .userInitiated)
-    
-    func dispatch(_ request: FSHRequest, success: @escaping (Data) -> Void, failure: @escaping (Error) -> Void) {
+    func dispatch(_ request: T, success: @escaping (Data) -> Void, failure: @escaping (Error) -> Void) {
         
-        FSHNetworkDispatcher.netQueue.async {
+        NetworkConstants.netQueue.async {
             guard let url = URL(string: request.url) else {
                 DispatchQueue.main.async {
                     failure(FSHNetworkError.invalidURL)
@@ -72,6 +67,4 @@ struct FSHNetworkDispatcher: FSHDispatcherProtocol {
         }
         
     }
-    
-    
 }
