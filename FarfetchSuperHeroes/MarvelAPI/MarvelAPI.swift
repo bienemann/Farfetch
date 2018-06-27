@@ -8,13 +8,6 @@
 
 import Foundation
 
-class Test: Decodable {
-    
-}
-
-//protocol MarvelAPIProtocol {
-//    func get<T: Decodable>(_ endpoint: String, handler: @escaping (T?, Error?) -> Void)
-//}
 protocol MarvelAPIProtocol {
     func get<T: Decodable>(_ endpoint: String, handler: @escaping (T?, Error?) -> Void)
     static var shared: MarvelAPIProtocol { get }
@@ -70,12 +63,6 @@ open class MarvelAPI: MarvelAPIProtocol {
 }
 
 extension MarvelAPIProtocol {
-    
-    static func getTest(handler: @escaping (Test?, Error?) -> Void) -> Void {
-        Self.shared.get("/v1/public/characters") { (test: Test?, error) in
-            handler(test, error)
-        }
-    }
     
     static func getCharacters(handler: @escaping ([MarvelCharacter]?, Error?) -> Void) -> Void{
         Self.shared.get("/v1/public/characters") { (response: MarvelObject<MarvelCharacter>?, error: Error?) in
