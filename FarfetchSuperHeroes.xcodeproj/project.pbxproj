@@ -28,6 +28,7 @@
 		9D7BF90620E3CFB60034FC9F /* MarvelTypedURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7BF90520E3CFB60034FC9F /* MarvelTypedURL.swift */; };
 		9D7BF90820E3D1490034FC9F /* FSHStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7BF90720E3D1490034FC9F /* FSHStub.swift */; };
 		9D7BF90C20E3DD9D0034FC9F /* characterMock01.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D7BF90B20E3DD9D0034FC9F /* characterMock01.json */; };
+		9D8AE23520E3F73000258704 /* UIImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8AE23420E3F73000258704 /* UIImageDownloader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		9D7BF90520E3CFB60034FC9F /* MarvelTypedURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelTypedURL.swift; sourceTree = "<group>"; };
 		9D7BF90720E3D1490034FC9F /* FSHStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHStub.swift; sourceTree = "<group>"; };
 		9D7BF90B20E3DD9D0034FC9F /* characterMock01.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = characterMock01.json; sourceTree = "<group>"; };
+		9D8AE23420E3F73000258704 /* UIImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageDownloader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 			children = (
 				9D52295020E2E2790091A227 /* FSHDispatcher.swift */,
 				9D52294D20E2C5480091A227 /* FSHRequest.swift */,
+				9D8AE23420E3F73000258704 /* UIImageDownloader.swift */,
 			);
 			path = BaseNetworking;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				9D52292B20E2C2440091A227 /* FirstViewController.swift in Sources */,
 				9D7BF90220E3CF610034FC9F /* MarvelThumbnail.swift in Sources */,
 				9D52294E20E2C5480091A227 /* FSHRequest.swift in Sources */,
+				9D8AE23520E3F73000258704 /* UIImageDownloader.swift in Sources */,
 				9D73883920E3BC07009DB81F /* MarvelObject.swift in Sources */,
 				9D372ED120E3293A0059BC3E /* MarvelAPI.swift in Sources */,
 				9D52294C20E2C43C0091A227 /* FSHConstants.swift in Sources */,
