@@ -14,7 +14,7 @@ public enum HTTPMethod: String {
 }
 
 protocol FSHRequestJSONProtocol: FSHRequestProtocol {
-    associatedtype JSONResult: Codable
+    associatedtype JSONResult: Decodable
 }
 
 protocol FSHRequestProtocol {
@@ -24,7 +24,7 @@ protocol FSHRequestProtocol {
     var params: [String: Any?]? { get set }
     var headers: [String: String]? { get set }
     
-    init(url: String, method: HTTPMethod, _ params: [String: Any?]?, _ headers: [String: String]?)
+    init(url: String, method: HTTPMethod, params: [String: Any?]?, headers: [String: String]?)
     init(url: String, method: HTTPMethod)
 }
 
@@ -54,7 +54,7 @@ extension FSHRequestJSONProtocol {
         
         let successBlock: (Data) -> Void = { data in
             do {
-                let jsonDecoder = JSONDecoder()
+                let jsonDecoder = FSHJSONDecoder()
                 let result = try jsonDecoder.decode(JSONResult.self, from: data)
                 let response: FSHDataResponse<Any> =
                     FSHDataResponse(result: .success(result),
@@ -87,7 +87,7 @@ struct FSHDataResponse<T> {
     var result: FSHDataResponse.Result<T>
     var data: Data?
     var error: Error?
-    var json: Codable?
+    var json: Decodable?
 }
 
 class FSHRequest: FSHRequestProtocol {
@@ -99,8 +99,8 @@ class FSHRequest: FSHRequestProtocol {
     
     required init(url: String,
                   method: HTTPMethod,
-                  _ params: [String: Any?]? = nil,
-                  _ headers: [String: String]? = nil) {
+                  params: [String: Any?]? = nil,
+                  headers: [String: String]? = nil) {
         
         self.url = url
         self.method = method
@@ -110,11 +110,11 @@ class FSHRequest: FSHRequestProtocol {
     }
     
     required convenience init(url: String, method: HTTPMethod) {
-        self.init(url: url, method: method, nil, nil)
+        self.init(url: url, method: method, params:nil, headers:nil)
     }
     
 }
 
-class FSHJSONRequest<T>: FSHRequest, FSHRequestJSONProtocol where T: Codable {
+class FSHJSONRequest<T>: FSHRequest, FSHRequestJSONProtocol where T: Decodable {
     typealias JSONResult = T
 }
