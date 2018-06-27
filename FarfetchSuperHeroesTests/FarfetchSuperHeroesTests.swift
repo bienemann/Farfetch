@@ -29,6 +29,7 @@ class FarfetchSuperHeroesTests: XCTestCase {
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        FSHStub.shared.removeAllStubs()
         super.tearDown()
     }
     
@@ -37,24 +38,25 @@ class FarfetchSuperHeroesTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
-    func testDispatcher() {
+    func testCharacters() {
         
-        let expectation = self.expectation(description: "testing dispatcher against google")
+        FSHStub.shared.stub("/v1/public/characters",
+                            response: "characterMock01",
+                            statusCode: 200)
         
-        let request = FSHRequest(url: "http://www.google.com", method: .get)
-        FSHNetworkDispatcher().dispatch(request, success: { (data) in
-            print("didGetData")
+        let expectation = self.expectation(description: "")
+        
+        MockMarvelAPI.getCharacters { (characters, error) in
             expectation.fulfill()
-        }) { (error) in
-            print(error.localizedDescription)
-            expectation.fulfill()
+            XCTAssert(characters?.first?.name == "TESTMAN")
         }
         
-        self.wait(for: [expectation], timeout: 5.0)
+        self.wait(for: [expectation], timeout: 0.5)
+
     }
     
     func testJSON() {
-
+        
         let jsonAddress = "https://gist.githubusercontent.com/bienemann/fb71376806de057cfb84a2e47c189728/raw/7e2e24ac6b325bc07f8158f57f84c60bb828010b/farfetchTestJSON"
         let expectation = self.expectation(description: "testing dispatcher against json in gist")
         

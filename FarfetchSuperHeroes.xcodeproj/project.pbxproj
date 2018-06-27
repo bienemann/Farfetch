@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D372ECD20E305320059BC3E /* FSHDispatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D372ECC20E305320059BC3E /* FSHDispatcherTests.swift */; };
+		9D372ED120E3293A0059BC3E /* MarvelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D372ED020E3293A0059BC3E /* MarvelAPI.swift */; };
 		9D52292920E2C2440091A227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52292820E2C2440091A227 /* AppDelegate.swift */; };
 		9D52292B20E2C2440091A227 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52292A20E2C2440091A227 /* FirstViewController.swift */; };
 		9D52292D20E2C2440091A227 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52292C20E2C2440091A227 /* SecondViewController.swift */; };
@@ -17,6 +19,15 @@
 		9D52294C20E2C43C0091A227 /* FSHConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52294B20E2C43C0091A227 /* FSHConstants.swift */; };
 		9D52294E20E2C5480091A227 /* FSHRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52294D20E2C5480091A227 /* FSHRequest.swift */; };
 		9D52295120E2E2790091A227 /* FSHDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52295020E2E2790091A227 /* FSHDispatcher.swift */; };
+		9D73883620E33631009DB81F /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D73883520E33631009DB81F /* MD5.swift */; };
+		9D73883920E3BC07009DB81F /* MarvelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D73883820E3BC07009DB81F /* MarvelObject.swift */; };
+		9D7BF8FE20E3CA370034FC9F /* FSHJSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7BF8FD20E3CA370034FC9F /* FSHJSONDecoder.swift */; };
+		9D7BF90020E3CF1A0034FC9F /* MarvelCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7BF8FF20E3CF1A0034FC9F /* MarvelCharacter.swift */; };
+		9D7BF90220E3CF610034FC9F /* MarvelThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7BF90120E3CF610034FC9F /* MarvelThumbnail.swift */; };
+		9D7BF90420E3CF7F0034FC9F /* MarvelLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7BF90320E3CF7F0034FC9F /* MarvelLists.swift */; };
+		9D7BF90620E3CFB60034FC9F /* MarvelTypedURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7BF90520E3CFB60034FC9F /* MarvelTypedURL.swift */; };
+		9D7BF90820E3D1490034FC9F /* FSHStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7BF90720E3D1490034FC9F /* FSHStub.swift */; };
+		9D7BF90C20E3DD9D0034FC9F /* characterMock01.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D7BF90B20E3DD9D0034FC9F /* characterMock01.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D372ECC20E305320059BC3E /* FSHDispatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHDispatcherTests.swift; sourceTree = "<group>"; };
+		9D372ED020E3293A0059BC3E /* MarvelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPI.swift; sourceTree = "<group>"; };
 		9D52292520E2C2440091A227 /* FarfetchSuperHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FarfetchSuperHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D52292820E2C2440091A227 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D52292A20E2C2440091A227 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +57,16 @@
 		9D52294B20E2C43C0091A227 /* FSHConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHConstants.swift; sourceTree = "<group>"; };
 		9D52294D20E2C5480091A227 /* FSHRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHRequest.swift; sourceTree = "<group>"; };
 		9D52295020E2E2790091A227 /* FSHDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHDispatcher.swift; sourceTree = "<group>"; };
+		9D73883220E3339B009DB81F /* FarfetchSuperHeroes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FarfetchSuperHeroes-Bridging-Header.h"; sourceTree = "<group>"; };
+		9D73883520E33631009DB81F /* MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
+		9D73883820E3BC07009DB81F /* MarvelObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelObject.swift; sourceTree = "<group>"; };
+		9D7BF8FD20E3CA370034FC9F /* FSHJSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHJSONDecoder.swift; sourceTree = "<group>"; };
+		9D7BF8FF20E3CF1A0034FC9F /* MarvelCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharacter.swift; sourceTree = "<group>"; };
+		9D7BF90120E3CF610034FC9F /* MarvelThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelThumbnail.swift; sourceTree = "<group>"; };
+		9D7BF90320E3CF7F0034FC9F /* MarvelLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelLists.swift; sourceTree = "<group>"; };
+		9D7BF90520E3CFB60034FC9F /* MarvelTypedURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelTypedURL.swift; sourceTree = "<group>"; };
+		9D7BF90720E3D1490034FC9F /* FSHStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHStub.swift; sourceTree = "<group>"; };
+		9D7BF90B20E3DD9D0034FC9F /* characterMock01.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = characterMock01.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +87,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D372ECF20E329260059BC3E /* MarvelAPI */ = {
+			isa = PBXGroup;
+			children = (
+				9D372ED020E3293A0059BC3E /* MarvelAPI.swift */,
+				9D73883520E33631009DB81F /* MD5.swift */,
+				9D7BF8FD20E3CA370034FC9F /* FSHJSONDecoder.swift */,
+			);
+			path = MarvelAPI;
+			sourceTree = "<group>";
+		};
 		9D52291C20E2C2440091A227 = {
 			isa = PBXGroup;
 			children = (
@@ -85,7 +118,9 @@
 		9D52292720E2C2440091A227 /* FarfetchSuperHeroes */ = {
 			isa = PBXGroup;
 			children = (
-				9D52294F20E2E2650091A227 /* Networking */,
+				9D73883720E3BBE0009DB81F /* Models */,
+				9D372ECF20E329260059BC3E /* MarvelAPI */,
+				9D52294F20E2E2650091A227 /* BaseNetworking */,
 				9D52292820E2C2440091A227 /* AppDelegate.swift */,
 				9D52292A20E2C2440091A227 /* FirstViewController.swift */,
 				9D52292C20E2C2440091A227 /* SecondViewController.swift */,
@@ -94,6 +129,7 @@
 				9D52293320E2C2460091A227 /* LaunchScreen.storyboard */,
 				9D52293620E2C2460091A227 /* Info.plist */,
 				9D52294B20E2C43C0091A227 /* FSHConstants.swift */,
+				9D73883220E3339B009DB81F /* FarfetchSuperHeroes-Bridging-Header.h */,
 			);
 			path = FarfetchSuperHeroes;
 			sourceTree = "<group>";
@@ -101,19 +137,50 @@
 		9D52293E20E2C2470091A227 /* FarfetchSuperHeroesTests */ = {
 			isa = PBXGroup;
 			children = (
-				9D52293F20E2C2470091A227 /* FarfetchSuperHeroesTests.swift */,
+				9D7BF90920E3DD6D0034FC9F /* Stubbing */,
 				9D52294120E2C2470091A227 /* Info.plist */,
+				9D52293F20E2C2470091A227 /* FarfetchSuperHeroesTests.swift */,
+				9D372ECC20E305320059BC3E /* FSHDispatcherTests.swift */,
 			);
 			path = FarfetchSuperHeroesTests;
 			sourceTree = "<group>";
 		};
-		9D52294F20E2E2650091A227 /* Networking */ = {
+		9D52294F20E2E2650091A227 /* BaseNetworking */ = {
 			isa = PBXGroup;
 			children = (
 				9D52295020E2E2790091A227 /* FSHDispatcher.swift */,
 				9D52294D20E2C5480091A227 /* FSHRequest.swift */,
 			);
-			path = Networking;
+			path = BaseNetworking;
+			sourceTree = "<group>";
+		};
+		9D73883720E3BBE0009DB81F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9D73883820E3BC07009DB81F /* MarvelObject.swift */,
+				9D7BF8FF20E3CF1A0034FC9F /* MarvelCharacter.swift */,
+				9D7BF90120E3CF610034FC9F /* MarvelThumbnail.swift */,
+				9D7BF90320E3CF7F0034FC9F /* MarvelLists.swift */,
+				9D7BF90520E3CFB60034FC9F /* MarvelTypedURL.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9D7BF90920E3DD6D0034FC9F /* Stubbing */ = {
+			isa = PBXGroup;
+			children = (
+				9D7BF90720E3D1490034FC9F /* FSHStub.swift */,
+				9D7BF90A20E3DD760034FC9F /* Mocks */,
+			);
+			path = Stubbing;
+			sourceTree = "<group>";
+		};
+		9D7BF90A20E3DD760034FC9F /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				9D7BF90B20E3DD9D0034FC9F /* characterMock01.json */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +233,7 @@
 				TargetAttributes = {
 					9D52292420E2C2440091A227 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 					};
 					9D52293A20E2C2470091A227 = {
 						CreatedOnToolsVersion = 9.3;
@@ -207,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D7BF90C20E3DD9D0034FC9F /* characterMock01.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,10 +287,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D52292D20E2C2440091A227 /* SecondViewController.swift in Sources */,
+				9D7BF90620E3CFB60034FC9F /* MarvelTypedURL.swift in Sources */,
+				9D7BF90020E3CF1A0034FC9F /* MarvelCharacter.swift in Sources */,
 				9D52292920E2C2440091A227 /* AppDelegate.swift in Sources */,
+				9D7BF8FE20E3CA370034FC9F /* FSHJSONDecoder.swift in Sources */,
+				9D73883620E33631009DB81F /* MD5.swift in Sources */,
 				9D52295120E2E2790091A227 /* FSHDispatcher.swift in Sources */,
+				9D7BF90420E3CF7F0034FC9F /* MarvelLists.swift in Sources */,
 				9D52292B20E2C2440091A227 /* FirstViewController.swift in Sources */,
+				9D7BF90220E3CF610034FC9F /* MarvelThumbnail.swift in Sources */,
 				9D52294E20E2C5480091A227 /* FSHRequest.swift in Sources */,
+				9D73883920E3BC07009DB81F /* MarvelObject.swift in Sources */,
+				9D372ED120E3293A0059BC3E /* MarvelAPI.swift in Sources */,
 				9D52294C20E2C43C0091A227 /* FSHConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,6 +307,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D7BF90820E3D1490034FC9F /* FSHStub.swift in Sources */,
+				9D372ECD20E305320059BC3E /* FSHDispatcherTests.swift in Sources */,
 				9D52294020E2C2470091A227 /* FarfetchSuperHeroesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,6 +461,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R8MYP56C5V;
 				INFOPLIST_FILE = FarfetchSuperHeroes/Info.plist;
@@ -391,6 +471,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aya.FarfetchSuperHeroes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FarfetchSuperHeroes/FarfetchSuperHeroes-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -400,6 +482,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R8MYP56C5V;
 				INFOPLIST_FILE = FarfetchSuperHeroes/Info.plist;
@@ -409,6 +492,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aya.FarfetchSuperHeroes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FarfetchSuperHeroes/FarfetchSuperHeroes-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

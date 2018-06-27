@@ -73,6 +73,7 @@ class FakeDispatcher<T: FSHRequestProtocol>: FSHNetworkDispatcher<T> {
                     DispatchQueue.main.async {
                         success(responseData)
                     }
+                    return
                 }
                 
                 DispatchQueue.main.async {
