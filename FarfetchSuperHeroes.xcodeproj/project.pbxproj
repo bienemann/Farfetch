@@ -29,6 +29,8 @@
 		9D7BF90820E3D1490034FC9F /* FSHStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7BF90720E3D1490034FC9F /* FSHStub.swift */; };
 		9D7BF90C20E3DD9D0034FC9F /* characterMock01.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D7BF90B20E3DD9D0034FC9F /* characterMock01.json */; };
 		9D8AE23520E3F73000258704 /* UIImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8AE23420E3F73000258704 /* UIImageDownloader.swift */; };
+		9D8AE23A20E4036600258704 /* FSHLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8AE23920E4036600258704 /* FSHLoading.swift */; };
+		9D8AE23C20E4043800258704 /* FSHLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8AE23B20E4043800258704 /* FSHLoadingView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		9D7BF90720E3D1490034FC9F /* FSHStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHStub.swift; sourceTree = "<group>"; };
 		9D7BF90B20E3DD9D0034FC9F /* characterMock01.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = characterMock01.json; sourceTree = "<group>"; };
 		9D8AE23420E3F73000258704 /* UIImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageDownloader.swift; sourceTree = "<group>"; };
+		9D8AE23920E4036600258704 /* FSHLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHLoading.swift; sourceTree = "<group>"; };
+		9D8AE23B20E4043800258704 /* FSHLoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FSHLoadingView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,10 +192,20 @@
 		9D8AE23720E3FF4C00258704 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9D8AE23820E4034000258704 /* Loading View */,
 				9D52292A20E2C2440091A227 /* HeroesViewController.swift */,
 				9D52292C20E2C2440091A227 /* FavoritesViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9D8AE23820E4034000258704 /* Loading View */ = {
+			isa = PBXGroup;
+			children = (
+				9D8AE23920E4036600258704 /* FSHLoading.swift */,
+				9D8AE23B20E4043800258704 /* FSHLoadingView.xib */,
+			);
+			path = "Loading View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D52293520E2C2460091A227 /* LaunchScreen.storyboard in Resources */,
+				9D8AE23C20E4043800258704 /* FSHLoadingView.xib in Resources */,
 				9D52293220E2C2460091A227 /* Assets.xcassets in Resources */,
 				9D52293020E2C2440091A227 /* Main.storyboard in Resources */,
 			);
@@ -307,6 +322,7 @@
 				9D7BF90420E3CF7F0034FC9F /* MarvelLists.swift in Sources */,
 				9D52292B20E2C2440091A227 /* HeroesViewController.swift in Sources */,
 				9D7BF90220E3CF610034FC9F /* MarvelThumbnail.swift in Sources */,
+				9D8AE23A20E4036600258704 /* FSHLoading.swift in Sources */,
 				9D52294E20E2C5480091A227 /* FSHRequest.swift in Sources */,
 				9D8AE23520E3F73000258704 /* UIImageDownloader.swift in Sources */,
 				9D73883920E3BC07009DB81F /* MarvelObject.swift in Sources */,

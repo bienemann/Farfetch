@@ -14,6 +14,11 @@ class HeroesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        FSHLoading.shared.show(true)
+        MarvelAPI.getCharacters { (characters, error) in
+            FSHLoading.shared.dismiss(true)
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 
