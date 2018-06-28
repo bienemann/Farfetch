@@ -40,16 +40,23 @@ class HeroesViewController: UIViewController {
         }
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if  segue.identifier == "hero_details",
+        let hero = sender as? MarvelCharacter,
+        let destination = segue.destination as? HeroDetailsViewController {
+            destination.hero = hero
+        }
     }
 }
 
 extension HeroesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "hero_details", sender: heroes[indexPath.row])
     }
 }
 

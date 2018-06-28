@@ -1,0 +1,38 @@
+//
+//  HeroDetailsViewController.swift
+//  FarfetchSuperHeroes
+//
+//  Created by Allan Martins on 27/06/18.
+//  Copyright © 2018 Allan Martins. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+class HeroDetailsViewController: UIViewController {
+    
+    @IBOutlet weak var imgThumbnail: UIImageView!
+    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var viwInfo: UIView!
+    
+    var hero: MarvelCharacter? = nil
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let hero = hero {
+            imgThumbnail.load(hero.thumbnail.url())
+            lblName.text = hero.name
+        }
+        
+        drawImageFrame()
+    }
+    
+    func drawImageFrame() {
+        self.imgThumbnail.layer.borderColor = UIColor.black.cgColor
+        self.imgThumbnail.layer.borderWidth = 2.0
+        self.viwInfo.layer.borderColor = UIColor.black.cgColor
+        self.viwInfo.layer.borderWidth = 2.0
+    }
+    
+}
