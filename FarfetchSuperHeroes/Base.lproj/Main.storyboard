@@ -58,71 +58,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rGp-7B-nwM">
-                                <rect key="frame" x="5" y="5" width="365" height="365"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="rGp-7B-nwM" secondAttribute="height" multiplier="1:1" id="aZ7-RO-hdd"/>
-                                </constraints>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GRi-iY-lbf">
-                                <rect key="frame" x="-2" y="385" width="379" height="171"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ky7-kY-cr4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s8r-su-tVM" customClass="LoadingIndicatorView" customModule="FarfetchSuperHeroes" customModuleProvider="target">
-                                        <rect key="frame" x="103" y="36" width="173" height="2"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rGp-7B-nwM">
+                                        <rect key="frame" x="5" y="5" width="365" height="365"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="173" id="Lgr-rJ-bHd"/>
-                                            <constraint firstAttribute="height" constant="2" id="oqj-wg-HiS"/>
+                                            <constraint firstAttribute="width" secondItem="rGp-7B-nwM" secondAttribute="height" multiplier="1:1" id="aZ7-RO-hdd"/>
+                                        </constraints>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GRi-iY-lbf">
+                                        <rect key="frame" x="0.0" y="390" width="375" height="164"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="o9d-Gj-Vml">
+                                                <rect key="frame" x="10" y="20" width="355" height="80"/>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="0.9857597460751899" blue="0.83410113887910686" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstItem="o9d-Gj-Vml" firstAttribute="top" secondItem="GRi-iY-lbf" secondAttribute="top" constant="20" id="A54-td-xDw"/>
+                                            <constraint firstAttribute="trailing" secondItem="o9d-Gj-Vml" secondAttribute="trailing" constant="10" id="YOJ-MU-34b"/>
+                                            <constraint firstItem="o9d-Gj-Vml" firstAttribute="leading" secondItem="GRi-iY-lbf" secondAttribute="leading" constant="10" id="eOk-cg-GQN"/>
+                                            <constraint firstAttribute="bottom" secondItem="o9d-Gj-Vml" secondAttribute="bottom" constant="64" id="hz1-gi-Mck"/>
+                                            <constraint firstAttribute="height" priority="750" constant="164" id="jEa-0o-cuK"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="t8s-XO-Tqr"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4D3-JA-mNy">
-                                        <rect key="frame" x="2" y="15" width="375" height="154"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hero Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWb-Rw-XhJ" customClass="ComicLabel" customModule="FarfetchSuperHeroes" customModuleProvider="target">
+                                        <rect key="frame" x="-2" y="375" width="113" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="QwG-fq-eyi"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="KomikaTextKaps" family="Komika Text Kaps" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="shadowOffset" width="2" height="1.5"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.9857597460751899" blue="0.83410113887910686" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstItem="4D3-JA-mNy" firstAttribute="leading" secondItem="GRi-iY-lbf" secondAttribute="leading" constant="2" id="6WI-L7-6ok"/>
-                                    <constraint firstItem="s8r-su-tVM" firstAttribute="centerX" secondItem="GRi-iY-lbf" secondAttribute="centerX" id="BVn-b2-G3b"/>
-                                    <constraint firstItem="s8r-su-tVM" firstAttribute="top" secondItem="GRi-iY-lbf" secondAttribute="top" constant="36" id="Bkf-4Z-h9Z"/>
-                                    <constraint firstItem="4D3-JA-mNy" firstAttribute="top" secondItem="GRi-iY-lbf" secondAttribute="top" constant="15" id="Bw9-XJ-TXh"/>
-                                    <constraint firstAttribute="bottom" secondItem="4D3-JA-mNy" secondAttribute="bottom" constant="2" id="Kms-iT-0oy"/>
-                                    <constraint firstAttribute="trailing" secondItem="4D3-JA-mNy" secondAttribute="trailing" constant="2" id="k69-yG-nKt"/>
+                                    <constraint firstItem="FWb-Rw-XhJ" firstAttribute="top" secondItem="rGp-7B-nwM" secondAttribute="bottom" constant="5" id="15E-EJ-Mlz"/>
+                                    <constraint firstAttribute="trailing" secondItem="GRi-iY-lbf" secondAttribute="trailing" id="HEV-hM-RtV"/>
+                                    <constraint firstItem="rGp-7B-nwM" firstAttribute="leading" secondItem="Ky7-kY-cr4" secondAttribute="leading" constant="5" id="ICk-5h-0RR"/>
+                                    <constraint firstAttribute="bottom" secondItem="GRi-iY-lbf" secondAttribute="bottom" id="VIY-1O-92e"/>
+                                    <constraint firstItem="FWb-Rw-XhJ" firstAttribute="leading" secondItem="Ky7-kY-cr4" secondAttribute="leading" constant="-2" id="Y9p-ul-Ns2"/>
+                                    <constraint firstItem="GRi-iY-lbf" firstAttribute="leading" secondItem="Ky7-kY-cr4" secondAttribute="leading" id="c2N-K8-WT7"/>
+                                    <constraint firstItem="GRi-iY-lbf" firstAttribute="centerX" secondItem="Ky7-kY-cr4" secondAttribute="centerX" id="cOH-Pr-pyi"/>
+                                    <constraint firstAttribute="trailing" secondItem="rGp-7B-nwM" secondAttribute="trailing" constant="5" id="cZe-3O-YfD"/>
+                                    <constraint firstItem="GRi-iY-lbf" firstAttribute="top" secondItem="rGp-7B-nwM" secondAttribute="bottom" constant="20" id="oFZ-VK-4Ad"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FWb-Rw-XhJ" secondAttribute="trailing" id="rrs-Wu-qwq"/>
+                                    <constraint firstItem="rGp-7B-nwM" firstAttribute="top" secondItem="Ky7-kY-cr4" secondAttribute="top" constant="5" id="v2s-Tu-PyD"/>
                                 </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hero Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWb-Rw-XhJ" customClass="ComicLabel" customModule="FarfetchSuperHeroes" customModuleProvider="target">
-                                <rect key="frame" x="-2" y="375" width="113" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="QwG-fq-eyi"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="KomikaTextKaps" family="Komika Text Kaps" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="shadowOffset" width="2" height="1.5"/>
-                            </label>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="GRi-iY-lbf" firstAttribute="trailing" secondItem="vze-QP-HEM" secondAttribute="trailing" constant="2" id="09L-Hy-vBB"/>
-                            <constraint firstItem="FWb-Rw-XhJ" firstAttribute="leading" secondItem="vze-QP-HEM" secondAttribute="leading" constant="-2" id="4Sa-U6-Dn6"/>
-                            <constraint firstItem="GRi-iY-lbf" firstAttribute="top" secondItem="FWb-Rw-XhJ" secondAttribute="bottom" constant="-20" id="J2y-zH-GlB"/>
-                            <constraint firstItem="vze-QP-HEM" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FWb-Rw-XhJ" secondAttribute="trailing" id="R7d-H0-Pqj"/>
-                            <constraint firstItem="FWb-Rw-XhJ" firstAttribute="top" secondItem="rGp-7B-nwM" secondAttribute="bottom" constant="5" id="STJ-Zh-Fqa"/>
-                            <constraint firstItem="rGp-7B-nwM" firstAttribute="top" secondItem="vze-QP-HEM" secondAttribute="top" constant="5" id="ayw-xW-tIf"/>
-                            <constraint firstItem="rGp-7B-nwM" firstAttribute="leading" secondItem="vze-QP-HEM" secondAttribute="leading" constant="5" id="eTm-Pw-qZE"/>
-                            <constraint firstItem="vze-QP-HEM" firstAttribute="trailing" secondItem="rGp-7B-nwM" secondAttribute="trailing" constant="5" id="kZ9-7U-hSo"/>
-                            <constraint firstItem="GRi-iY-lbf" firstAttribute="bottom" secondItem="vze-QP-HEM" secondAttribute="bottom" constant="2" id="md4-aZ-CVE"/>
-                            <constraint firstItem="GRi-iY-lbf" firstAttribute="leading" secondItem="KYN-AN-4Ft" secondAttribute="leading" constant="-2" id="oNa-kr-xY1"/>
+                            <constraint firstItem="Ky7-kY-cr4" firstAttribute="width" secondItem="KYN-AN-4Ft" secondAttribute="width" id="6jQ-on-wem"/>
+                            <constraint firstItem="Ky7-kY-cr4" firstAttribute="centerX" secondItem="vze-QP-HEM" secondAttribute="centerX" id="9iv-Zt-Qny"/>
+                            <constraint firstItem="vze-QP-HEM" firstAttribute="bottom" secondItem="Ky7-kY-cr4" secondAttribute="bottom" id="aPS-R0-9hr"/>
+                            <constraint firstItem="GRi-iY-lbf" firstAttribute="width" secondItem="KYN-AN-4Ft" secondAttribute="width" id="f9z-Hh-NPj"/>
+                            <constraint firstItem="Ky7-kY-cr4" firstAttribute="top" secondItem="vze-QP-HEM" secondAttribute="top" id="mo0-Tj-Jju"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vze-QP-HEM"/>
                     </view>
                     <connections>
                         <outlet property="imgThumbnail" destination="rGp-7B-nwM" id="xdx-r9-wf8"/>
                         <outlet property="lblName" destination="FWb-Rw-XhJ" id="bx1-kC-eV7"/>
+                        <outlet property="stackInfo" destination="o9d-Gj-Vml" id="HlH-fd-Jc9"/>
                         <outlet property="viwInfo" destination="GRi-iY-lbf" id="bRm-Xb-lkc"/>
-                        <outlet property="viwLoadingView" destination="s8r-su-tVM" id="MbP-y7-QLM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NdZ-A0-ZOJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -33,14 +33,15 @@
 		9D8AE23520E3F73000258704 /* UIImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8AE23420E3F73000258704 /* UIImageDownloader.swift */; };
 		9D8AE23A20E4036600258704 /* FSHLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8AE23920E4036600258704 /* FSHLoading.swift */; };
 		9D8AE23C20E4043800258704 /* FSHLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8AE23B20E4043800258704 /* FSHLoadingView.xib */; };
+		9DC08DA620E5605F005A5BA3 /* DetailsStack.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DC08DA520E5605F005A5BA3 /* DetailsStack.xib */; };
 		9DE99BA920E460040017D659 /* ComicLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE99BA820E460040017D659 /* ComicLabel.swift */; };
 		9DE99BB020E466860017D659 /* KOMTXTK_.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DE99BAC20E466850017D659 /* KOMTXTK_.ttf */; };
 		9DE99BB120E466860017D659 /* KOMTXTKB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DE99BAD20E466850017D659 /* KOMTXTKB.ttf */; };
 		9DE99BB220E466860017D659 /* KOMTXTKI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DE99BAE20E466860017D659 /* KOMTXTKI.ttf */; };
 		9DE99BB320E466860017D659 /* KOMTXKBI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DE99BAF20E466860017D659 /* KOMTXKBI.ttf */; };
 		9DE99BB520E470990017D659 /* HeroDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE99BB420E470990017D659 /* HeroDetailsViewController.swift */; };
-		9DE99BB820E523EB0017D659 /* ComicsDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DE99BB720E523EB0017D659 /* ComicsDetails.xib */; };
-		9DE99BBA20E523FA0017D659 /* ComicsDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE99BB920E523FA0017D659 /* ComicsDetails.swift */; };
+		9DE99BB820E523EB0017D659 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DE99BB720E523EB0017D659 /* DetailView.xib */; };
+		9DE99BBA20E523FA0017D659 /* DetailsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE99BB920E523FA0017D659 /* DetailsStack.swift */; };
 		9DE99BBC20E5265F0017D659 /* comicsMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DE99BBB20E5265F0017D659 /* comicsMock.json */; };
 		9DE99BBE20E52D120017D659 /* MarvelComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE99BBD20E52D120017D659 /* MarvelComic.swift */; };
 		9DE99BC020E5439C0017D659 /* MarvelEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE99BBF20E5439C0017D659 /* MarvelEvent.swift */; };
@@ -94,14 +95,15 @@
 		9D8AE23420E3F73000258704 /* UIImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageDownloader.swift; sourceTree = "<group>"; };
 		9D8AE23920E4036600258704 /* FSHLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHLoading.swift; sourceTree = "<group>"; };
 		9D8AE23B20E4043800258704 /* FSHLoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FSHLoadingView.xib; sourceTree = "<group>"; };
+		9DC08DA520E5605F005A5BA3 /* DetailsStack.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsStack.xib; sourceTree = "<group>"; };
 		9DE99BA820E460040017D659 /* ComicLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicLabel.swift; sourceTree = "<group>"; };
 		9DE99BAC20E466850017D659 /* KOMTXTK_.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KOMTXTK_.ttf; sourceTree = "<group>"; };
 		9DE99BAD20E466850017D659 /* KOMTXTKB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KOMTXTKB.ttf; sourceTree = "<group>"; };
 		9DE99BAE20E466860017D659 /* KOMTXTKI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KOMTXTKI.ttf; sourceTree = "<group>"; };
 		9DE99BAF20E466860017D659 /* KOMTXKBI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KOMTXKBI.ttf; sourceTree = "<group>"; };
 		9DE99BB420E470990017D659 /* HeroDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailsViewController.swift; sourceTree = "<group>"; };
-		9DE99BB720E523EB0017D659 /* ComicsDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComicsDetails.xib; sourceTree = "<group>"; };
-		9DE99BB920E523FA0017D659 /* ComicsDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsDetails.swift; sourceTree = "<group>"; };
+		9DE99BB720E523EB0017D659 /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
+		9DE99BB920E523FA0017D659 /* DetailsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsStack.swift; sourceTree = "<group>"; };
 		9DE99BBB20E5265F0017D659 /* comicsMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = comicsMock.json; sourceTree = "<group>"; };
 		9DE99BBD20E52D120017D659 /* MarvelComic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelComic.swift; sourceTree = "<group>"; };
 		9DE99BBF20E5439C0017D659 /* MarvelEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelEvent.swift; sourceTree = "<group>"; };
@@ -315,8 +317,9 @@
 		9DE99BB620E523C60017D659 /* DetailsItems */ = {
 			isa = PBXGroup;
 			children = (
-				9DE99BB920E523FA0017D659 /* ComicsDetails.swift */,
-				9DE99BB720E523EB0017D659 /* ComicsDetails.xib */,
+				9DE99BB920E523FA0017D659 /* DetailsStack.swift */,
+				9DC08DA520E5605F005A5BA3 /* DetailsStack.xib */,
+				9DE99BB720E523EB0017D659 /* DetailView.xib */,
 			);
 			path = DetailsItems;
 			sourceTree = "<group>";
@@ -405,9 +408,10 @@
 			files = (
 				9D52293520E2C2460091A227 /* LaunchScreen.storyboard in Resources */,
 				9DE99BB020E466860017D659 /* KOMTXTK_.ttf in Resources */,
-				9DE99BB820E523EB0017D659 /* ComicsDetails.xib in Resources */,
+				9DE99BB820E523EB0017D659 /* DetailView.xib in Resources */,
 				9D8AE23C20E4043800258704 /* FSHLoadingView.xib in Resources */,
 				9DE99BB220E466860017D659 /* KOMTXTKI.ttf in Resources */,
+				9DC08DA620E5605F005A5BA3 /* DetailsStack.xib in Resources */,
 				9DE99BB320E466860017D659 /* KOMTXKBI.ttf in Resources */,
 				9D52293220E2C2460091A227 /* Assets.xcassets in Resources */,
 				9D87B91A20E4522200194A4F /* HeroMainCell.xib in Resources */,
@@ -458,7 +462,7 @@
 				9D372ED120E3293A0059BC3E /* MarvelAPI.swift in Sources */,
 				9DE99BC420E543D30017D659 /* MarvelStory.swift in Sources */,
 				9D52294C20E2C43C0091A227 /* FSHConstants.swift in Sources */,
-				9DE99BBA20E523FA0017D659 /* ComicsDetails.swift in Sources */,
+				9DE99BBA20E523FA0017D659 /* DetailsStack.swift in Sources */,
 				9DE99BB520E470990017D659 /* HeroDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
