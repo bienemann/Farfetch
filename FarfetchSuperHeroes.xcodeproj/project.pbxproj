@@ -46,6 +46,9 @@
 		9DE99BC020E5439C0017D659 /* MarvelEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE99BBF20E5439C0017D659 /* MarvelEvent.swift */; };
 		9DE99BC220E543B50017D659 /* MarvelSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE99BC120E543B50017D659 /* MarvelSerie.swift */; };
 		9DE99BC420E543D30017D659 /* MarvelStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE99BC320E543D30017D659 /* MarvelStory.swift */; };
+		9DE99BC620E545120017D659 /* seriesMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DE99BC520E545120017D659 /* seriesMock.json */; };
+		9DE99BCA20E5459F0017D659 /* eventsMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DE99BC920E5459F0017D659 /* eventsMock.json */; };
+		9DE99BCC20E545E00017D659 /* storiesMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DE99BCB20E545E00017D659 /* storiesMock.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +106,9 @@
 		9DE99BBF20E5439C0017D659 /* MarvelEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelEvent.swift; sourceTree = "<group>"; };
 		9DE99BC120E543B50017D659 /* MarvelSerie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelSerie.swift; sourceTree = "<group>"; };
 		9DE99BC320E543D30017D659 /* MarvelStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelStory.swift; sourceTree = "<group>"; };
+		9DE99BC520E545120017D659 /* seriesMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = seriesMock.json; sourceTree = "<group>"; };
+		9DE99BC920E5459F0017D659 /* eventsMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = eventsMock.json; sourceTree = "<group>"; };
+		9DE99BCB20E545E00017D659 /* storiesMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = storiesMock.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +229,9 @@
 			children = (
 				9D7BF90B20E3DD9D0034FC9F /* characterMock01.json */,
 				9DE99BBB20E5265F0017D659 /* comicsMock.json */,
+				9DE99BC520E545120017D659 /* seriesMock.json */,
+				9DE99BC920E5459F0017D659 /* eventsMock.json */,
+				9DE99BCB20E545E00017D659 /* storiesMock.json */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -408,7 +417,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DE99BCC20E545E00017D659 /* storiesMock.json in Resources */,
+				9DE99BC620E545120017D659 /* seriesMock.json in Resources */,
 				9D7BF90C20E3DD9D0034FC9F /* characterMock01.json in Resources */,
+				9DE99BCA20E5459F0017D659 /* eventsMock.json in Resources */,
 				9DE99BBC20E5265F0017D659 /* comicsMock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

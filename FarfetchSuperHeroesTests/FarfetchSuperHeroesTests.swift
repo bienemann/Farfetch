@@ -63,6 +63,51 @@ class FarfetchSuperHeroesTests: XCTestCase {
         self.wait(for: [expectation], timeout: 0.5)
     }
     
+    func testStories() {
+        FSHStub.shared.stub("/v1/public/characters/1011334/stories",
+                            response: "storiesMock",
+                            statusCode: 200)
+        
+        let expectation = self.expectation(description: "")
+        
+        MockMarvelAPI.getStories(for: 1011334) { (stories, error) in
+            expectation.fulfill()
+            XCTAssert(stories!.first!.id == 19947)
+        }
+        
+        self.wait(for: [expectation], timeout: 0.5)
+    }
+    
+    func testEvents() {
+        FSHStub.shared.stub("/v1/public/characters/1011334/events",
+                            response: "eventsMock",
+                            statusCode: 200)
+        
+        let expectation = self.expectation(description: "")
+        
+        MockMarvelAPI.getEvents(for: 1011334) { (events, error) in
+            expectation.fulfill()
+            XCTAssert(events!.first!.id == 269)
+        }
+        
+        self.wait(for: [expectation], timeout: 0.5)
+    }
+    
+    func testSeries() {
+        FSHStub.shared.stub("/v1/public/characters/1011334/series",
+                            response: "seriesMock",
+                            statusCode: 200)
+        
+        let expectation = self.expectation(description: "")
+        
+        MockMarvelAPI.getSeries(for: 1011334) { (series, error) in
+            expectation.fulfill()
+            XCTAssert(series!.first!.id == 1945)
+        }
+        
+        self.wait(for: [expectation], timeout: 0.5)
+    }
+    
     func testJSON() {
         
         let jsonAddress = "https://gist.githubusercontent.com/bienemann/fb71376806de057cfb84a2e47c189728/raw/7e2e24ac6b325bc07f8158f57f84c60bb828010b/farfetchTestJSON"
