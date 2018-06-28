@@ -32,7 +32,10 @@ class HeroDetailsViewController: UIViewController {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var viwInfo: UIView!
     @IBOutlet weak var stackInfo: UIStackView!
+    
+    @IBOutlet weak var viwLoadingContainer: UIView!
     @IBOutlet weak var viwLoadingView: LoadingIndicatorView!
+    @IBOutlet weak var lblNoData: UILabel!
     
     var hero: MarvelCharacter? = nil
     var detailsCollection = DetailsCollection()
@@ -55,6 +58,8 @@ class HeroDetailsViewController: UIViewController {
     }
     
     func drawImageFrame() {
+        
+        self.viwLoadingView.foregroundColor = UIColor.black
         self.imgThumbnail.layer.borderColor = UIColor.black.cgColor
         self.imgThumbnail.layer.borderWidth = 2.0
         self.viwInfo.layer.borderColor = UIColor.black.cgColor
@@ -68,6 +73,9 @@ extension HeroDetailsViewController {
     func loadDetails() {
         
         if detailsCollection.isEmpty {
+            viwLoadingContainer.isHidden = true
+            viwLoadingView.stop()
+            lblNoData.isHidden = false
             return
         }
         
@@ -91,6 +99,9 @@ extension HeroDetailsViewController {
         stackInfo.translatesAutoresizingMaskIntoConstraints = false
         stackInfo.invalidateIntrinsicContentSize()
         self.view.layoutIfNeeded()
+        
+        viwLoadingContainer.isHidden = true
+        viwLoadingView.stop()
         
     }
     
@@ -120,6 +131,9 @@ extension HeroDetailsViewController {
         guard let heroID = hero?.id else {
             return
         }
+        
+        viwLoadingContainer.isHidden = false
+        viwLoadingView.play()
         
         let queue = DispatchQueue(label: "com.details.download", qos: .userInitiated)
         download(in: queue, for: heroID) {

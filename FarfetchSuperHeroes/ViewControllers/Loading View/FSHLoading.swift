@@ -11,7 +11,12 @@ import UIKit
 
 class LoadingIndicatorView: UIView {
     
-    var foregroundColor: UIColor?
+    var foregroundColor: UIColor = .lightGray {
+        didSet {
+            leftBar?.backgroundColor = foregroundColor
+            rightBar?.backgroundColor = foregroundColor
+        }
+    }
     var animationStopped: Bool = true
     @IBOutlet weak var view: UIView!
     @IBOutlet weak var leftBar: UIView!
@@ -38,8 +43,6 @@ class LoadingIndicatorView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = .white
-        self.foregroundColor = .lightGray
         setup()
     }
     
@@ -67,8 +70,8 @@ class LoadingIndicatorView: UIView {
         self.view.frame = bounds
         self.addSubview(self.view)
         
-        leftBar?.backgroundColor = foregroundColor ?? UIColor.clear
-        rightBar?.backgroundColor = foregroundColor ?? UIColor.clear
+        leftBar.backgroundColor = foregroundColor
+        rightBar.backgroundColor = foregroundColor
     }
     
     func stop() {

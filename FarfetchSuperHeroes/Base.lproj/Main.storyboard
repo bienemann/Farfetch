@@ -70,18 +70,59 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GRi-iY-lbf">
                                         <rect key="frame" x="0.0" y="390" width="375" height="164"/>
                                         <subviews>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[ no data found ]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjB-gL-jne">
+                                                <rect key="frame" x="131" y="72.5" width="113" height="19"/>
+                                                <fontDescription key="fontDescription" name="KomikaTextKaps" family="Komika Text Kaps" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mrq-2g-b17">
+                                                <rect key="frame" x="67" y="18" width="240" height="128"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading hero data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BwL-Fl-z4v">
+                                                        <rect key="frame" x="80" y="57.5" width="80" height="13"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="13" id="16A-Fl-5MW"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="KomikaTextKaps" family="Komika Text Kaps" pointSize="11"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FCt-3K-Rqp" customClass="LoadingIndicatorView" customModule="FarfetchSuperHeroes" customModuleProvider="target">
+                                                        <rect key="frame" x="10" y="72.5" width="220" height="1"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="UyC-Z1-eSn"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="FCt-3K-Rqp" firstAttribute="top" secondItem="BwL-Fl-z4v" secondAttribute="bottom" constant="2" id="9Xy-ed-Ajg"/>
+                                                    <constraint firstAttribute="width" constant="240" id="E5v-iF-DOi"/>
+                                                    <constraint firstAttribute="trailing" secondItem="FCt-3K-Rqp" secondAttribute="trailing" constant="10" id="NgD-p7-ihY"/>
+                                                    <constraint firstItem="BwL-Fl-z4v" firstAttribute="centerY" secondItem="Mrq-2g-b17" secondAttribute="centerY" id="SHS-N2-pkg"/>
+                                                    <constraint firstAttribute="height" constant="128" id="lRJ-Fz-hsN"/>
+                                                    <constraint firstItem="FCt-3K-Rqp" firstAttribute="leading" secondItem="Mrq-2g-b17" secondAttribute="leading" constant="10" id="q7x-nt-l4s"/>
+                                                    <constraint firstItem="BwL-Fl-z4v" firstAttribute="centerX" secondItem="Mrq-2g-b17" secondAttribute="centerX" id="tQd-Bg-YAD"/>
+                                                </constraints>
+                                            </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="o9d-Gj-Vml">
                                                 <rect key="frame" x="10" y="20" width="355" height="80"/>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.9857597460751899" blue="0.83410113887910686" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
+                                            <constraint firstItem="sjB-gL-jne" firstAttribute="centerX" secondItem="GRi-iY-lbf" secondAttribute="centerX" id="9ZL-Wa-Pou"/>
                                             <constraint firstItem="o9d-Gj-Vml" firstAttribute="top" secondItem="GRi-iY-lbf" secondAttribute="top" constant="20" id="A54-td-xDw"/>
+                                            <constraint firstItem="sjB-gL-jne" firstAttribute="centerY" secondItem="GRi-iY-lbf" secondAttribute="centerY" id="BQU-J8-1Gj"/>
+                                            <constraint firstItem="Mrq-2g-b17" firstAttribute="centerY" secondItem="GRi-iY-lbf" secondAttribute="centerY" id="KBs-CP-nNs"/>
                                             <constraint firstAttribute="trailing" secondItem="o9d-Gj-Vml" secondAttribute="trailing" constant="10" id="YOJ-MU-34b"/>
                                             <constraint firstItem="o9d-Gj-Vml" firstAttribute="leading" secondItem="GRi-iY-lbf" secondAttribute="leading" constant="10" id="eOk-cg-GQN"/>
                                             <constraint firstAttribute="bottom" secondItem="o9d-Gj-Vml" secondAttribute="bottom" constant="64" id="hz1-gi-Mck"/>
                                             <constraint firstAttribute="height" priority="750" constant="164" id="jEa-0o-cuK"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="t8s-XO-Tqr"/>
+                                            <constraint firstItem="Mrq-2g-b17" firstAttribute="centerX" secondItem="GRi-iY-lbf" secondAttribute="centerX" id="tbM-im-2Xp"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hero Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWb-Rw-XhJ" customClass="ComicLabel" customModule="FarfetchSuperHeroes" customModuleProvider="target">
@@ -125,8 +166,11 @@
                     <connections>
                         <outlet property="imgThumbnail" destination="rGp-7B-nwM" id="xdx-r9-wf8"/>
                         <outlet property="lblName" destination="FWb-Rw-XhJ" id="bx1-kC-eV7"/>
+                        <outlet property="lblNoData" destination="sjB-gL-jne" id="A8q-Ff-gov"/>
                         <outlet property="stackInfo" destination="o9d-Gj-Vml" id="HlH-fd-Jc9"/>
                         <outlet property="viwInfo" destination="GRi-iY-lbf" id="bRm-Xb-lkc"/>
+                        <outlet property="viwLoadingContainer" destination="Mrq-2g-b17" id="wBO-Y2-Z8M"/>
+                        <outlet property="viwLoadingView" destination="FCt-3K-Rqp" id="xQj-lR-5Qg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NdZ-A0-ZOJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
