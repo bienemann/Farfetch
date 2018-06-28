@@ -95,7 +95,7 @@ class FSHNetworkDispatcher<T: FSHRequestProtocol> {
             throw FSHNetworkError.invalidURL
         }
         
-        var urlRequest = URLRequest(url: finalURL)
+        var urlRequest = URLRequest(url: finalURL, cachePolicy: .returnCacheDataElseLoad)
         urlRequest.httpMethod = request.method.rawValue.uppercased()
         urlRequest.httpBody = bodyData
         

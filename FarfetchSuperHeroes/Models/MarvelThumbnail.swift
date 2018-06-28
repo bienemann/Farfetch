@@ -24,4 +24,8 @@ struct MarvelThumbnail: Decodable {
         filetype = try container.decode(String.self, forKey: .filetype)
     }
     
+    func url() -> String {
+        return path + "." + filetype
+    }
+    
 }
