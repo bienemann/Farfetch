@@ -6,9 +6,16 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="KOMTXTKI.ttf">
+            <string>KomikaTextKaps-Italic</string>
+        </array>
+        <array key="KOMTXTK_.ttf">
+            <string>KomikaTextKaps</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailView" customModule="FarfetchSuperHeroes" customModuleProvider="target">
             <connections>
@@ -18,40 +25,37 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="lKe-fc-8Zp">
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lKe-fc-8Zp">
             <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYF-n5-uax">
-                    <rect key="frame" x="16" y="7" width="45" height="21"/>
+                    <rect key="frame" x="16" y="7" width="37.5" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="ZWL-yC-67O"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="KomikaTextKaps" family="Komika Text Kaps" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ox5-ba-SUM">
-                    <rect key="frame" x="16" y="36" width="88" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="DW7-Nr-R8K"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Descriptiondgahjkda dhsajkdhkajs bdjskahdkjhak hdjksahdkjas dshajkdhksa dhsajkhdkas" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ox5-ba-SUM">
+                    <rect key="frame" x="16" y="36" width="343" height="39"/>
+                    <fontDescription key="fontDescription" name="KomikaTextKaps-Italic" family="Komika Text Kaps" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="iYF-n5-uax" firstAttribute="top" secondItem="quq-ho-bXx" secondAttribute="top" constant="7" id="1Fj-ga-tjY"/>
-                <constraint firstItem="Ox5-ba-SUM" firstAttribute="leading" secondItem="quq-ho-bXx" secondAttribute="leading" constant="16" id="7j3-If-e46"/>
-                <constraint firstItem="iYF-n5-uax" firstAttribute="leading" secondItem="quq-ho-bXx" secondAttribute="leading" constant="16" id="Qzn-E6-f3c"/>
-                <constraint firstItem="quq-ho-bXx" firstAttribute="bottom" secondItem="Ox5-ba-SUM" secondAttribute="bottom" constant="18" id="kp0-zV-p28"/>
+                <constraint firstItem="iYF-n5-uax" firstAttribute="top" secondItem="lKe-fc-8Zp" secondAttribute="top" constant="7" id="1Fj-ga-tjY"/>
+                <constraint firstItem="Ox5-ba-SUM" firstAttribute="leading" secondItem="lKe-fc-8Zp" secondAttribute="leading" constant="16" id="7j3-If-e46"/>
+                <constraint firstItem="iYF-n5-uax" firstAttribute="leading" secondItem="lKe-fc-8Zp" secondAttribute="leading" constant="16" id="E9W-HA-afa"/>
+                <constraint firstAttribute="trailing" secondItem="Ox5-ba-SUM" secondAttribute="trailing" constant="16" id="KdB-Sm-RKu"/>
+                <constraint firstAttribute="bottom" secondItem="Ox5-ba-SUM" secondAttribute="bottom" id="Wlq-P1-bs0"/>
                 <constraint firstItem="Ox5-ba-SUM" firstAttribute="top" secondItem="iYF-n5-uax" secondAttribute="bottom" constant="8" id="xRQ-dw-VBK"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="quq-ho-bXx"/>
-            <point key="canvasLocation" x="21" y="34"/>
+            <point key="canvasLocation" x="20.5" y="50"/>
         </view>
     </objects>
 </document>

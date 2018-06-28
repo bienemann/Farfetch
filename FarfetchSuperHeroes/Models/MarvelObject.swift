@@ -8,6 +8,11 @@
 
 import Foundation
 
+protocol Summarizable: Decodable {
+    func name() -> String
+    func summary() -> String
+}
+
 struct MarvelObject<T: Decodable>: Decodable {
     let code: Int?
     let status: String?

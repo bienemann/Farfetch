@@ -8,7 +8,15 @@
 
 import Foundation
 
-struct MarvelComic: Decodable {
+struct MarvelComic: Summarizable {
+    
+    func name() -> String {
+        return self.title ?? "[ missing name ]"
+    }
+    
+    func summary() -> String {
+        return self.description ?? "[ missing description ]"
+    }
     
     let id: Int?
     let digitalId: Int?
