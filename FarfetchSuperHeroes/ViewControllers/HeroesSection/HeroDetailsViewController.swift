@@ -21,8 +21,8 @@ class HeroDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         if let hero = hero {
-            imgThumbnail.load(hero.thumbnail.url())
             lblName.text = hero.name
+            imgThumbnail.load(hero.thumbnail?.url() ?? "")
         }
         
         drawImageFrame()

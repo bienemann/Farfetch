@@ -79,7 +79,7 @@ extension HeroesViewController: UITableViewDataSource {
         cell.selectionStyle = .none
         
         let hero = heroes[indexPath.row]
-        cell.imgThumb.load(hero.thumbnail.url())
+        cell.imgThumb.load(hero.thumbnail?.url() ?? "")
         cell.lblName.text = hero.name
         
         return cell

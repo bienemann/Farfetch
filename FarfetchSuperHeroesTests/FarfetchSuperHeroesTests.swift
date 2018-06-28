@@ -24,18 +24,11 @@ class FarfetchSuperHeroesTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         FSHStub.shared.removeAllStubs()
         super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
     func testCharacters() {
@@ -53,6 +46,21 @@ class FarfetchSuperHeroesTests: XCTestCase {
         
         self.wait(for: [expectation], timeout: 0.5)
 
+    }
+    
+    func testComics() {
+        FSHStub.shared.stub("/v1/public/characters/1011334/comics",
+                            response: "comicsMock",
+                            statusCode: 200)
+        
+        let expectation = self.expectation(description: "")
+        
+        MockMarvelAPI.getComics(for: 1011334) { (comics, error) in
+            expectation.fulfill()
+            XCTAssert(comics!.first!.id == 22506)
+        }
+        
+        self.wait(for: [expectation], timeout: 0.5)
     }
     
     func testJSON() {

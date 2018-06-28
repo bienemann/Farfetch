@@ -10,8 +10,8 @@ import Foundation
 
 struct MarvelThumbnail: Decodable {
     
-    let path: String
-    let filetype: String
+    let path: String?
+    let filetype: String?
     
     enum CodingKeys: String, CodingKey {
         case path = "path"
@@ -25,6 +25,11 @@ struct MarvelThumbnail: Decodable {
     }
     
     func url() -> String {
+
+        guard let path = path, let filetype = filetype else {
+            return ""
+        }
+        
         return path + "." + filetype
     }
     

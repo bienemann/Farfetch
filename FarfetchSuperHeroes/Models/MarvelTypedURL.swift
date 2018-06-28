@@ -9,6 +9,6 @@
 import Foundation
 
 struct MarvelTypedUrl: Decodable {
-    let type: String
-    let url: String
+    let type: String?
+    let url: String?
 }

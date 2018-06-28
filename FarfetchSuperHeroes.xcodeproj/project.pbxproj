@@ -41,6 +41,8 @@
 		9DE99BB520E470990017D659 /* HeroDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE99BB420E470990017D659 /* HeroDetailsViewController.swift */; };
 		9DE99BB820E523EB0017D659 /* ComicsDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DE99BB720E523EB0017D659 /* ComicsDetails.xib */; };
 		9DE99BBA20E523FA0017D659 /* ComicsDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE99BB920E523FA0017D659 /* ComicsDetails.swift */; };
+		9DE99BBC20E5265F0017D659 /* comicsMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DE99BBB20E5265F0017D659 /* comicsMock.json */; };
+		9DE99BBE20E52D120017D659 /* MarvelComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE99BBD20E52D120017D659 /* MarvelComic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,8 @@
 		9DE99BB420E470990017D659 /* HeroDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailsViewController.swift; sourceTree = "<group>"; };
 		9DE99BB720E523EB0017D659 /* ComicsDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComicsDetails.xib; sourceTree = "<group>"; };
 		9DE99BB920E523FA0017D659 /* ComicsDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsDetails.swift; sourceTree = "<group>"; };
+		9DE99BBB20E5265F0017D659 /* comicsMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = comicsMock.json; sourceTree = "<group>"; };
+		9DE99BBD20E52D120017D659 /* MarvelComic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelComic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +195,7 @@
 				9D7BF90120E3CF610034FC9F /* MarvelThumbnail.swift */,
 				9D7BF90320E3CF7F0034FC9F /* MarvelLists.swift */,
 				9D7BF90520E3CFB60034FC9F /* MarvelTypedURL.swift */,
+				9DE99BBD20E52D120017D659 /* MarvelComic.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				9D7BF90B20E3DD9D0034FC9F /* characterMock01.json */,
+				9DE99BBB20E5265F0017D659 /* comicsMock.json */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -394,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D7BF90C20E3DD9D0034FC9F /* characterMock01.json in Resources */,
+				9DE99BBC20E5265F0017D659 /* comicsMock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +422,7 @@
 				9DE99BA920E460040017D659 /* ComicLabel.swift in Sources */,
 				9D52292B20E2C2440091A227 /* HeroesViewController.swift in Sources */,
 				9D7BF90220E3CF610034FC9F /* MarvelThumbnail.swift in Sources */,
+				9DE99BBE20E52D120017D659 /* MarvelComic.swift in Sources */,
 				9D8AE23A20E4036600258704 /* FSHLoading.swift in Sources */,
 				9D52294E20E2C5480091A227 /* FSHRequest.swift in Sources */,
 				9D8AE23520E3F73000258704 /* UIImageDownloader.swift in Sources */,

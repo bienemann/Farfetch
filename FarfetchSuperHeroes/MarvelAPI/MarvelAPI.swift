@@ -67,12 +67,26 @@ extension MarvelAPIProtocol {
     static func getCharacters(handler: @escaping ([MarvelCharacter]?, Error?) -> Void) -> Void{
         Self.shared.get("/v1/public/characters") { (response: MarvelObject<MarvelCharacter>?, error: Error?) in
             
-            guard let responseObject = response else {
+            guard let responseObject = response?.data?.results else {
                 handler(nil, error)
                 return
             }
             
-            handler(responseObject.data.results, error)
+            handler(responseObject, error)
+            
+        }
+    }
+    
+    static func getComics(for characterId: Int, handler: @escaping ([MarvelComic]?, Error?) -> Void) -> Void {
+        let endpoint = "/v1/public/characters/\(characterId)/comics"
+        Self.shared.get(endpoint) { (response: MarvelObject<MarvelComic>?, error) in
+            
+            guard let responseObject = response?.data?.results else {
+                handler(nil, error)
+                return
+            }
+            
+            handler(responseObject, error)
             
         }
     }

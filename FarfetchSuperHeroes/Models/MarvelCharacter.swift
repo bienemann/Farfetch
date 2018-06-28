@@ -10,17 +10,17 @@ import Foundation
 
 struct MarvelCharacter: Decodable {
     
-    let id: Int
-    let name: String
-    let description: String
-    let modified: Date
-    let resourceURI: String //"http://gateway.marvel.com/v1/public/characters/1010870",
+    let id: Int?
+    let name: String?
+    let description: String?
+    let modified: Date?
+    let resourceURI: String? //"http://gateway.marvel.com/v1/public/characters/1010870",
     
-    let thumbnail: MarvelThumbnail
-    let comics: MarvelGenericList<MarvelComicSummary>
-    let series: MarvelGenericList<MarvelSeriesSummary>
-    let stories: MarvelGenericList<MarvelStorySummary>
-    let events: MarvelGenericList<MarvelEventSummary>
-    let urls: [MarvelTypedUrl]
+    let thumbnail: MarvelThumbnail?
+    let comics: MarvelGenericList<MarvelComicSummary>?
+    let series: MarvelGenericList<MarvelSeriesSummary>?
+    let stories: MarvelGenericList<MarvelStorySummary>?
+    let events: MarvelGenericList<MarvelEventSummary>?
+    let urls: [MarvelTypedUrl]?
     
 }
