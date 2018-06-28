@@ -65,25 +65,28 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GRi-iY-lbf">
-                                <rect key="frame" x="-2" y="395" width="379" height="161"/>
+                                <rect key="frame" x="-2" y="385" width="379" height="171"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appears In:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2Q-lT-aWr">
-                                        <rect key="frame" x="10" y="10" width="77.5" height="20"/>
-                                        <fontDescription key="fontDescription" name="KomikaTextKaps" family="Komika Text Kaps" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s8r-su-tVM" customClass="LoadingIndicatorView" customModule="FarfetchSuperHeroes" customModuleProvider="target">
+                                        <rect key="frame" x="103" y="36" width="173" height="2"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="173" id="Lgr-rJ-bHd"/>
+                                            <constraint firstAttribute="height" constant="2" id="oqj-wg-HiS"/>
+                                        </constraints>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4D3-JA-mNy">
-                                        <rect key="frame" x="2" y="15" width="375" height="144"/>
+                                        <rect key="frame" x="2" y="15" width="375" height="154"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.9857597460751899" blue="0.83410113887910686" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="4D3-JA-mNy" firstAttribute="leading" secondItem="GRi-iY-lbf" secondAttribute="leading" constant="2" id="6WI-L7-6ok"/>
+                                    <constraint firstItem="s8r-su-tVM" firstAttribute="centerX" secondItem="GRi-iY-lbf" secondAttribute="centerX" id="BVn-b2-G3b"/>
+                                    <constraint firstItem="s8r-su-tVM" firstAttribute="top" secondItem="GRi-iY-lbf" secondAttribute="top" constant="36" id="Bkf-4Z-h9Z"/>
                                     <constraint firstItem="4D3-JA-mNy" firstAttribute="top" secondItem="GRi-iY-lbf" secondAttribute="top" constant="15" id="Bw9-XJ-TXh"/>
                                     <constraint firstAttribute="bottom" secondItem="4D3-JA-mNy" secondAttribute="bottom" constant="2" id="Kms-iT-0oy"/>
-                                    <constraint firstItem="L2Q-lT-aWr" firstAttribute="leading" secondItem="GRi-iY-lbf" secondAttribute="leading" constant="10" id="RPe-pu-M2e"/>
-                                    <constraint firstItem="L2Q-lT-aWr" firstAttribute="top" secondItem="GRi-iY-lbf" secondAttribute="top" constant="10" id="bca-6m-eWn"/>
                                     <constraint firstAttribute="trailing" secondItem="4D3-JA-mNy" secondAttribute="trailing" constant="2" id="k69-yG-nKt"/>
                                 </constraints>
                             </view>
@@ -104,7 +107,7 @@
                         <constraints>
                             <constraint firstItem="GRi-iY-lbf" firstAttribute="trailing" secondItem="vze-QP-HEM" secondAttribute="trailing" constant="2" id="09L-Hy-vBB"/>
                             <constraint firstItem="FWb-Rw-XhJ" firstAttribute="leading" secondItem="vze-QP-HEM" secondAttribute="leading" constant="-2" id="4Sa-U6-Dn6"/>
-                            <constraint firstItem="GRi-iY-lbf" firstAttribute="top" secondItem="FWb-Rw-XhJ" secondAttribute="bottom" constant="-10" id="J2y-zH-GlB"/>
+                            <constraint firstItem="GRi-iY-lbf" firstAttribute="top" secondItem="FWb-Rw-XhJ" secondAttribute="bottom" constant="-20" id="J2y-zH-GlB"/>
                             <constraint firstItem="vze-QP-HEM" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FWb-Rw-XhJ" secondAttribute="trailing" id="R7d-H0-Pqj"/>
                             <constraint firstItem="FWb-Rw-XhJ" firstAttribute="top" secondItem="rGp-7B-nwM" secondAttribute="bottom" constant="5" id="STJ-Zh-Fqa"/>
                             <constraint firstItem="rGp-7B-nwM" firstAttribute="top" secondItem="vze-QP-HEM" secondAttribute="top" constant="5" id="ayw-xW-tIf"/>
@@ -119,6 +122,7 @@
                         <outlet property="imgThumbnail" destination="rGp-7B-nwM" id="xdx-r9-wf8"/>
                         <outlet property="lblName" destination="FWb-Rw-XhJ" id="bx1-kC-eV7"/>
                         <outlet property="viwInfo" destination="GRi-iY-lbf" id="bRm-Xb-lkc"/>
+                        <outlet property="viwLoadingView" destination="s8r-su-tVM" id="MbP-y7-QLM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NdZ-A0-ZOJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

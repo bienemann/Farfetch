@@ -49,6 +49,7 @@
 		9DE99BC620E545120017D659 /* seriesMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DE99BC520E545120017D659 /* seriesMock.json */; };
 		9DE99BCA20E5459F0017D659 /* eventsMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DE99BC920E5459F0017D659 /* eventsMock.json */; };
 		9DE99BCC20E545E00017D659 /* storiesMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DE99BCB20E545E00017D659 /* storiesMock.json */; };
+		9DE99BCE20E551FC0017D659 /* LoadingIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DE99BCD20E551FB0017D659 /* LoadingIndicatorView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		9DE99BC520E545120017D659 /* seriesMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = seriesMock.json; sourceTree = "<group>"; };
 		9DE99BC920E5459F0017D659 /* eventsMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = eventsMock.json; sourceTree = "<group>"; };
 		9DE99BCB20E545E00017D659 /* storiesMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = storiesMock.json; sourceTree = "<group>"; };
+		9DE99BCD20E551FB0017D659 /* LoadingIndicatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingIndicatorView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				9D8AE23920E4036600258704 /* FSHLoading.swift */,
+				9DE99BCD20E551FB0017D659 /* LoadingIndicatorView.xib */,
 				9D8AE23B20E4043800258704 /* FSHLoadingView.xib */,
 			);
 			path = "Loading View";
@@ -409,6 +412,7 @@
 				9D52293220E2C2460091A227 /* Assets.xcassets in Resources */,
 				9D87B91A20E4522200194A4F /* HeroMainCell.xib in Resources */,
 				9D52293020E2C2440091A227 /* Main.storyboard in Resources */,
+				9DE99BCE20E551FC0017D659 /* LoadingIndicatorView.xib in Resources */,
 				9DE99BB120E466860017D659 /* KOMTXTKB.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

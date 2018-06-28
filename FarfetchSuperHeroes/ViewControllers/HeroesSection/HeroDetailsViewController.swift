@@ -14,6 +14,7 @@ class HeroDetailsViewController: UIViewController {
     @IBOutlet weak var imgThumbnail: UIImageView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var viwInfo: UIView!
+    @IBOutlet weak var viwLoadingView: LoadingIndicatorView!
     
     var hero: MarvelCharacter? = nil
     
@@ -26,6 +27,7 @@ class HeroDetailsViewController: UIViewController {
         }
         
         drawImageFrame()
+        viwLoadingView.play()
     }
     
     func drawImageFrame() {

@@ -15,14 +15,6 @@
         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" id="MTw-Fv-o3H">
             <rect key="frame" x="0.0" y="0.0" width="397" height="30"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXK-5U-pyK">
-                    <rect key="frame" x="0.0" y="0.0" width="397" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-            </subviews>
             <viewLayoutGuide key="safeArea" id="g3U-ul-Gm2"/>
             <point key="canvasLocation" x="6.5" y="-35"/>
         </stackView>

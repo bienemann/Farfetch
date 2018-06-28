@@ -9,6 +9,14 @@
 import Foundation
 import UIKit
 
-class ComicsDetails: UIView {
+class ComicsDetails: UIStackView {
+    
+    override func awakeFromNib() {
+        
+    }
+    
+}
+
+class ComicsDetail: UIView {
     
 }

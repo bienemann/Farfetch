@@ -33,45 +33,11 @@
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xj4-0f-uSm" customClass="LoadingIndicatorView" customModule="FarfetchSuperHeroes" customModuleProvider="target">
                             <rect key="frame" x="7" y="92" width="113" height="1"/>
-                            <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6so-E3-f61">
-                                    <rect key="frame" x="0.0" y="0.0" width="113" height="1"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" priority="750" constant="113" id="gyG-NH-JoR"/>
-                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" id="lji-WS-oPc"/>
-                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="113" id="n6b-X6-gmr"/>
-                                    </constraints>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Btf-B1-DAN">
-                                    <rect key="frame" x="113" y="0.0" width="0.0" height="1"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="113" id="D9z-ho-IBW"/>
-                                        <constraint firstAttribute="width" priority="750" id="U4K-cV-bwa"/>
-                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" id="b3g-nF-mZv"/>
-                                    </constraints>
-                                </view>
-                            </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="6so-E3-f61" firstAttribute="leading" secondItem="xj4-0f-uSm" secondAttribute="leading" id="29m-gi-6iI"/>
-                                <constraint firstAttribute="bottom" secondItem="6so-E3-f61" secondAttribute="bottom" id="67S-We-SZ3"/>
-                                <constraint firstAttribute="trailing" secondItem="Btf-B1-DAN" secondAttribute="trailing" id="Kfl-Bs-K68"/>
                                 <constraint firstAttribute="height" constant="1" id="NhG-yX-VPd"/>
                                 <constraint firstAttribute="width" constant="113" id="Rbv-FO-F6j"/>
-                                <constraint firstAttribute="bottom" secondItem="Btf-B1-DAN" secondAttribute="bottom" id="ZFG-P6-CSK"/>
-                                <constraint firstItem="6so-E3-f61" firstAttribute="top" secondItem="xj4-0f-uSm" secondAttribute="top" id="rK0-T1-Cdg"/>
-                                <constraint firstItem="Btf-B1-DAN" firstAttribute="leading" secondItem="6so-E3-f61" secondAttribute="trailing" id="rLg-uh-f0U"/>
-                                <constraint firstItem="Btf-B1-DAN" firstAttribute="top" secondItem="xj4-0f-uSm" secondAttribute="top" id="z1z-6Z-seT"/>
                             </constraints>
-                            <connections>
-                                <outlet property="leftBar" destination="6so-E3-f61" id="aRo-Hk-A8g"/>
-                                <outlet property="leftWidthConstraint" destination="gyG-NH-JoR" id="iLN-S4-XI3"/>
-                                <outlet property="rightBar" destination="Btf-B1-DAN" id="FnH-zn-w4J"/>
-                                <outlet property="rightWidthConstraint" destination="U4K-cV-bwa" id="gd3-1w-BS8"/>
-                                <outlet property="spaceConstraint" destination="rLg-uh-f0U" id="7uv-rd-79P"/>
-                            </connections>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

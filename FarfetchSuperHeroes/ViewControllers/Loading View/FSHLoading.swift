@@ -13,6 +13,7 @@ class LoadingIndicatorView: UIView {
     
     var foregroundColor: UIColor?
     var animationStopped: Bool = true
+    @IBOutlet weak var view: UIView!
     @IBOutlet weak var leftBar: UIView!
     @IBOutlet weak var rightBar: UIView!
     @IBOutlet weak var spaceConstraint: NSLayoutConstraint!
@@ -42,11 +43,32 @@ class LoadingIndicatorView: UIView {
         setup()
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.xibSetup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.xibSetup()
+    }
+    
+    private func xibSetup() {
+        self.view = loadView()
+    }
+    
+    private func loadView() -> UIView {
+        let nib = UINib(nibName: "LoadingIndicatorView", bundle: Bundle.main)
+        return nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+    }
+    
     func setup() {
+        
+        self.view.frame = bounds
+        self.addSubview(self.view)
         
         leftBar?.backgroundColor = foregroundColor ?? UIColor.clear
         rightBar?.backgroundColor = foregroundColor ?? UIColor.clear
-        
     }
     
     func stop() {
