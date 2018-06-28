@@ -56,5 +56,12 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>KOMTXTK_.ttfKOMTXTKB.ttfKOMTXTKI.ttf</string>
+		<string>KOMTXTKB.ttf</string>
+		<string>KOMTXTKI.ttf</string>
+		<string>KOMTXKBI.ttf</string>
+	</array>
 </dict>
 </plist>

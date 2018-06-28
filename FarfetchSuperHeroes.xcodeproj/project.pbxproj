@@ -34,6 +34,10 @@
 		9D8AE23A20E4036600258704 /* FSHLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8AE23920E4036600258704 /* FSHLoading.swift */; };
 		9D8AE23C20E4043800258704 /* FSHLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8AE23B20E4043800258704 /* FSHLoadingView.xib */; };
 		9DE99BA920E460040017D659 /* ComicLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE99BA820E460040017D659 /* ComicLabel.swift */; };
+		9DE99BB020E466860017D659 /* KOMTXTK_.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DE99BAC20E466850017D659 /* KOMTXTK_.ttf */; };
+		9DE99BB120E466860017D659 /* KOMTXTKB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DE99BAD20E466850017D659 /* KOMTXTKB.ttf */; };
+		9DE99BB220E466860017D659 /* KOMTXTKI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DE99BAE20E466860017D659 /* KOMTXTKI.ttf */; };
+		9DE99BB320E466860017D659 /* KOMTXKBI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DE99BAF20E466860017D659 /* KOMTXKBI.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +83,10 @@
 		9D8AE23920E4036600258704 /* FSHLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHLoading.swift; sourceTree = "<group>"; };
 		9D8AE23B20E4043800258704 /* FSHLoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FSHLoadingView.xib; sourceTree = "<group>"; };
 		9DE99BA820E460040017D659 /* ComicLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicLabel.swift; sourceTree = "<group>"; };
+		9DE99BAC20E466850017D659 /* KOMTXTK_.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KOMTXTK_.ttf; sourceTree = "<group>"; };
+		9DE99BAD20E466850017D659 /* KOMTXTKB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KOMTXTKB.ttf; sourceTree = "<group>"; };
+		9DE99BAE20E466860017D659 /* KOMTXTKI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KOMTXTKI.ttf; sourceTree = "<group>"; };
+		9DE99BAF20E466860017D659 /* KOMTXKBI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KOMTXKBI.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +138,7 @@
 		9D52292720E2C2440091A227 /* FarfetchSuperHeroes */ = {
 			isa = PBXGroup;
 			children = (
+				9DE99BAA20E466640017D659 /* Resources */,
 				9DE99BA720E45FF10017D659 /* Helpers */,
 				9D87B91820E451FC00194A4F /* TableCells */,
 				9D8AE23720E3FF4C00258704 /* ViewControllers */,
@@ -249,6 +258,25 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		9DE99BAA20E466640017D659 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9DE99BAB20E466700017D659 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9DE99BAB20E466700017D659 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9DE99BAF20E466860017D659 /* KOMTXKBI.ttf */,
+				9DE99BAC20E466850017D659 /* KOMTXTK_.ttf */,
+				9DE99BAD20E466850017D659 /* KOMTXTKB.ttf */,
+				9DE99BAE20E466860017D659 /* KOMTXTKI.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -332,10 +360,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D52293520E2C2460091A227 /* LaunchScreen.storyboard in Resources */,
+				9DE99BB020E466860017D659 /* KOMTXTK_.ttf in Resources */,
 				9D8AE23C20E4043800258704 /* FSHLoadingView.xib in Resources */,
+				9DE99BB220E466860017D659 /* KOMTXTKI.ttf in Resources */,
+				9DE99BB320E466860017D659 /* KOMTXKBI.ttf in Resources */,
 				9D52293220E2C2460091A227 /* Assets.xcassets in Resources */,
 				9D87B91A20E4522200194A4F /* HeroMainCell.xib in Resources */,
 				9D52293020E2C2440091A227 /* Main.storyboard in Resources */,
+				9DE99BB120E466860017D659 /* KOMTXTKB.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
