@@ -41,4 +41,3 @@ struct MarvelComic: Decodable {
     let events: MarvelGenericList<MarvelEventSummary>?
     
 }
-
