@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9D372ECD20E305320059BC3E /* FSHDispatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D372ECC20E305320059BC3E /* FSHDispatcherTests.swift */; };
 		9D372ED120E3293A0059BC3E /* MarvelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D372ED020E3293A0059BC3E /* MarvelAPI.swift */; };
+		9D40EE5420E59F9E0048B60C /* DetailsTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D40EE5320E59F9E0048B60C /* DetailsTransitionAnimator.swift */; };
 		9D52292920E2C2440091A227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52292820E2C2440091A227 /* AppDelegate.swift */; };
 		9D52292B20E2C2440091A227 /* HeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52292A20E2C2440091A227 /* HeroesViewController.swift */; };
 		9D52292D20E2C2440091A227 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52292C20E2C2440091A227 /* FavoritesViewController.swift */; };
@@ -66,6 +67,7 @@
 /* Begin PBXFileReference section */
 		9D372ECC20E305320059BC3E /* FSHDispatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHDispatcherTests.swift; sourceTree = "<group>"; };
 		9D372ED020E3293A0059BC3E /* MarvelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPI.swift; sourceTree = "<group>"; };
+		9D40EE5320E59F9E0048B60C /* DetailsTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTransitionAnimator.swift; sourceTree = "<group>"; };
 		9D52292520E2C2440091A227 /* FarfetchSuperHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FarfetchSuperHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D52292820E2C2440091A227 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D52292A20E2C2440091A227 /* HeroesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +143,14 @@
 				9D7BF8FD20E3CA370034FC9F /* FSHJSONDecoder.swift */,
 			);
 			path = MarvelAPI;
+			sourceTree = "<group>";
+		};
+		9D40EE5220E59F890048B60C /* Custom Transition */ = {
+			isa = PBXGroup;
+			children = (
+				9D40EE5320E59F9E0048B60C /* DetailsTransitionAnimator.swift */,
+			);
+			path = "Custom Transition";
 			sourceTree = "<group>";
 		};
 		9D52291C20E2C2440091A227 = {
@@ -272,7 +282,6 @@
 			children = (
 				9D87B91620E450B900194A4F /* HeroesSection */,
 				9D87B91720E4515500194A4F /* FavoritesSection */,
-				9D8AE23820E4034000258704 /* Loading View */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -290,6 +299,8 @@
 		9DE99BA720E45FF10017D659 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				9D40EE5220E59F890048B60C /* Custom Transition */,
+				9D8AE23820E4034000258704 /* Loading View */,
 				9DE99BA820E460040017D659 /* ComicLabel.swift */,
 			);
 			path = Helpers;
@@ -462,6 +473,7 @@
 				9D372ED120E3293A0059BC3E /* MarvelAPI.swift in Sources */,
 				9DE99BC420E543D30017D659 /* MarvelStory.swift in Sources */,
 				9D52294C20E2C43C0091A227 /* FSHConstants.swift in Sources */,
+				9D40EE5420E59F9E0048B60C /* DetailsTransitionAnimator.swift in Sources */,
 				9DE99BBA20E523FA0017D659 /* DetailsStack.swift in Sources */,
 				9DE99BB520E470990017D659 /* HeroDetailsViewController.swift in Sources */,
 			);

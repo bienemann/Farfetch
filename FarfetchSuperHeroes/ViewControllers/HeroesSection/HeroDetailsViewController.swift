@@ -55,6 +55,7 @@ class HeroDetailsViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        viwLoadingView.stop()
     }
     
     func drawImageFrame() {

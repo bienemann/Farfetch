@@ -13,12 +13,14 @@ class HeroesViewController: UIViewController {
     @IBOutlet weak var heroesList: UITableView!
     
     var heroes = [MarvelCharacter]()
+    var selectedIndex: IndexPath?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.heroesList.dataSource = self
         self.heroesList.delegate = self
+        self.navigationController?.delegate = self
         
         let nib = UINib(nibName: "HeroMainCell", bundle: Bundle.main)
         self.heroesList.register(nib, forCellReuseIdentifier: "hero_main_cell")
@@ -41,6 +43,11 @@ class HeroesViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        selectedIndex = nil
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == "hero_details",
         let hero = sender as? MarvelCharacter,
@@ -56,6 +63,7 @@ extension HeroesViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath
         performSegue(withIdentifier: "hero_details", sender: heroes[indexPath.row])
     }
 }
@@ -84,6 +92,29 @@ extension HeroesViewController: UITableViewDataSource {
         
         return cell
         
+    }
+    
+}
+
+extension HeroesViewController: UINavigationControllerDelegate {
+    
+    func navigationController(_ navigationController: UINavigationController,
+                              animationControllerFor operation: UINavigationControllerOperation,
+                              from fromVC: UIViewController,
+                              to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        guard let selectedIndex = selectedIndex else {
+            return nil
+        }
+        
+        switch operation {
+        case .push:
+            return DetailsTransitionAnimator(from: selectedIndex, transitioning: .into)
+        case .pop:
+            return DetailsTransitionAnimator(from: selectedIndex, transitioning: .out)
+        default:
+            return nil
+        }
     }
     
 }

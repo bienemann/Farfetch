@@ -16,6 +16,21 @@ class ComicLabel: UILabel {
     @IBInspectable var leftInset: CGFloat = 10.0
     @IBInspectable var rightInset: CGFloat = 10.0
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        drawBorder()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        drawBorder()
+    }
+    
+    func drawBorder() {
+        self.layer.borderColor = UIColor.black.cgColor
+        self.layer.borderWidth = 2.0
+    }
+    
     override func drawText(in rect: CGRect) {
         let insets = UIEdgeInsets.init(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
         super.drawText(in: UIEdgeInsetsInsetRect(rect, insets))
@@ -28,8 +43,7 @@ class ComicLabel: UILabel {
     }
     
     override func awakeFromNib() {
-        self.layer.borderColor = UIColor.black.cgColor
-        self.layer.borderWidth = 2.0
+        super.awakeFromNib()
     }
     
 }
