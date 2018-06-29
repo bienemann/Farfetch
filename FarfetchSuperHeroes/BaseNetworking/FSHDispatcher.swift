@@ -21,39 +21,45 @@ struct NetworkConstants {
 
 class FSHNetworkDispatcher<T: FSHRequestProtocol> {
     
-    func dispatch(_ request: T, success: @escaping (Data) -> Void, failure: @escaping (Error) -> Void) {
+    @discardableResult func dispatch(_ request: T,
+                  success: @escaping (Data) -> Void,
+                  failure: @escaping (Error) -> Void) -> URLSessionDataTask? {
         
-        NetworkConstants.netQueue.async {
+        var urlRequest: URLRequest! = nil
+        
+        do {
+            urlRequest = try self.buildRequest(from: request)
+        } catch let error {
+            failure(error)
+            return nil
+        }
+        
+        let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             
-            do {
-                let urlRequest = try self.buildRequest(from: request)
-                URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-                    
-                    if let error = error {
-                        DispatchQueue.main.async {
-                            failure(error)
-                        }
-                        return
-                    }
-                    
-                    guard let data = data else {
-                        DispatchQueue.main.async {
-                            failure(FSHNetworkError.noData)
-                        }
-                        return
-                    }
-                    
-                    DispatchQueue.main.async {
-                        success(data)
-                    }
-                }.resume()
-            } catch let error {
+            if let error = error {
                 DispatchQueue.main.async {
                     failure(error)
                 }
                 return
             }
+            
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    failure(FSHNetworkError.noData)
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                success(data)
+            }
         }
+        
+        NetworkConstants.netQueue.async {
+            task.resume()
+        }
+        
+        return task
         
     }
     
@@ -73,7 +79,7 @@ class FSHNetworkDispatcher<T: FSHRequestProtocol> {
                 
                 var components = URLComponents()
                 components.queryItems = params.compactMap({ (key, value) -> URLQueryItem? in
-                    if let value = value as? String {
+                    if let value = value?.description {
                         return URLQueryItem(name: key, value: value)
                     }
                     return nil

@@ -9,8 +9,17 @@
 import Foundation
 
 protocol MarvelAPIProtocol {
-    func get<T: Decodable>(_ endpoint: String, handler: @escaping (T?, Error?) -> Void)
+    func get<T: Decodable>(_ endpoint: String,
+                           params: [String: LosslessStringConvertible?],
+                           headers: [String: String],
+                           handler: @escaping (T?, Error?) -> Void)
     static var shared: MarvelAPIProtocol { get }
+}
+
+extension MarvelAPIProtocol {
+    func get<T: Decodable>(_ endpoint: String, handler: @escaping (T?, Error?) -> Void) {
+        get(endpoint, params: MarvelAPI.params(), headers: MarvelAPI.headers(), handler: handler)
+    }
 }
 
 open class MarvelAPI: MarvelAPIProtocol {
@@ -20,25 +29,28 @@ open class MarvelAPI: MarvelAPIProtocol {
         return MarvelAPI()
     }
     
-    func params() -> [String: Any?] {
+    class func params() -> [String: LosslessStringConvertible?] {
         let timestamp = Int(Date().timeIntervalSince1970)
         return ["apikey": FSHConstants.marvelPubKey,
                 "ts": "\(timestamp)",
                 "hash": MD5.hash("\(timestamp)" + FSHConstants.marvelPvtKey + FSHConstants.marvelPubKey)]
     }
     
-    func headers() -> [String: String] {
+    class func headers() -> [String: String] {
         return ["Accept": "*/*"]
     }
     
-    func get<T: Decodable>(_ endpoint: String, handler: @escaping (T?, Error?) -> Void) {
+    func get<T: Decodable>(_ endpoint: String,
+                           params: [String: LosslessStringConvertible?] = params(),
+                           headers: [String: String] = headers(),
+                           handler: @escaping (T?, Error?) -> Void) {
         
         let url = MarvelAPI.baseURL + endpoint
         
         FSHJSONRequest<T>(url: url,
                           method: .get,
-                          params: params(),
-                          headers: headers())
+                          params: params,
+                          headers: headers)
             .jsonResponse { response in
                 
                 switch response.result {
@@ -64,17 +76,23 @@ open class MarvelAPI: MarvelAPIProtocol {
 
 extension MarvelAPIProtocol {
     
-    static func getCharacters(handler: @escaping ([MarvelCharacter]?, Error?) -> Void) -> Void{
-        Self.shared.get("/v1/public/characters") { (response: MarvelObject<MarvelCharacter>?, error: Error?) in
-            
+    static func getCharacters(_ page: Int = 0,
+                              handler: @escaping ([MarvelCharacter]?, Int?, Error?) -> Void) -> Void {
+        
+        var params = MarvelAPI.params()
+        params["limit"] = 20
+        params["offset"] = 20*page
+        
+        Self.shared.get("/v1/public/characters", params: params, headers: MarvelAPI.headers()) {
+        (response: MarvelObject<MarvelCharacter>?, error: Error?) in
             guard let responseObject = response?.data?.results else {
-                handler(nil, error)
+                handler(nil, nil, error)
                 return
             }
             
-            handler(responseObject, error)
-            
+            handler(responseObject, response?.data?.total ?? nil, error)
         }
+        
     }
     
     static func getComics(for characterId: Int, handler: @escaping ([MarvelComic]?, Error?) -> Void) -> Void {

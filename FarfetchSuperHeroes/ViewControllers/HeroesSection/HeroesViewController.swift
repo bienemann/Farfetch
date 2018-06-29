@@ -22,11 +22,14 @@ class HeroesViewController: UIViewController {
         self.heroesList.delegate = self
         self.navigationController?.delegate = self
         
-        let nib = UINib(nibName: "HeroMainCell", bundle: Bundle.main)
-        self.heroesList.register(nib, forCellReuseIdentifier: "hero_main_cell")
+        self.heroesList.register(UINib(nibName: "HeroMainCell", bundle: Bundle.main),
+                                 forCellReuseIdentifier: "hero_main_cell")
+        self.heroesList.register(UINib(nibName: "PaginationCell", bundle: Bundle.main),
+                                 forCellReuseIdentifier: "pagination_cell")
+        
         
         FSHLoading.shared.show(true)
-        MarvelAPI.getCharacters { (characters, error) in
+        MarvelAPI.getCharacters { (characters, total, error) in
             FSHLoading.shared.dismiss(true)
             
             guard
@@ -55,6 +58,39 @@ class HeroesViewController: UIViewController {
             destination.hero = hero
         }
     }
+    
+    func loadMoreHeroes(_ paginationCell: PaginationCell) {
+        
+        paginationCell.startLoading()
+        
+        MarvelAPI
+        .getCharacters(Int(floor(Double(heroes.count)*0.05)),
+                       handler: { [weak self] (characters, total, error) in
+                        
+                        paginationCell.stopLoading()
+                                    
+                        guard
+                            let characters = characters,
+                            let heroesList = self?.heroesList,
+                            let heroesCount = self?.heroes.count,
+                            error == nil
+                            else {
+                                // TODO manage errors
+                                return
+                        }
+                        
+                        let heroesListDelta = (heroesCount..<heroesCount + characters.count)
+                        let indexes = heroesListDelta.map { IndexPath(row: $0, section: 0) }
+                        self?.heroes.append(contentsOf: characters)
+                        
+                        // Insert new rows animated
+                        heroesList.performBatchUpdates({
+                            heroesList.insertRows(at: indexes, with: .right)
+                        }, completion: nil)
+                                    
+        })
+        
+    }
 }
 
 extension HeroesViewController: UITableViewDelegate {
@@ -63,6 +99,17 @@ extension HeroesViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == heroes.count {
+            guard let cell = tableView.cellForRow(at: indexPath) as? PaginationCell else {
+                return
+            }
+            
+            loadMoreHeroes(cell)
+            
+            return
+        }
+        
         selectedIndex = indexPath
         performSegue(withIdentifier: "hero_details", sender: heroes[indexPath.row])
     }
@@ -71,10 +118,28 @@ extension HeroesViewController: UITableViewDelegate {
 extension HeroesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return heroes.count
+        if heroes.count == 0 {
+           return 0
+        } else {
+            return heroes.count + 1
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if indexPath.row == heroes.count {
+            guard
+                let cell = tableView.dequeueReusableCell(withIdentifier: "pagination_cell",
+                                                         for: indexPath) as? PaginationCell
+                else {
+                    return UITableViewCell()
+            }
+            
+            cell.selectionStyle = .none
+            return cell
+            
+        }
         
         guard
             let cell = tableView.dequeueReusableCell(withIdentifier: "hero_main_cell",
@@ -84,12 +149,12 @@ extension HeroesViewController: UITableViewDataSource {
         }
         
         cell.imgThumb.image = UIImage(named: "downloadImagePlaceholder")
-        cell.selectionStyle = .none
         
         let hero = heroes[indexPath.row]
         cell.imgThumb.load(hero.thumbnail?.url() ?? "")
         cell.lblName.text = hero.name
         
+        cell.selectionStyle = .none
         return cell
         
     }

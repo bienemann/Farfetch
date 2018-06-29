@@ -9,12 +9,26 @@
 import Foundation
 import UIKit
 
-extension UIImageView {
+protocol SelfDownloadingProtocol {
+    var downloadTask: URLSessionDataTask? { get set }
+    func load(_ from: String, animated: Bool) -> Void
+}
+
+extension SelfDownloadingProtocol {
+    func load(_ from: String) -> Void {
+        load(from, animated: false)
+    }
+}
+
+class SelfDownloadingImageView: UIImageView, SelfDownloadingProtocol {
+    
+    var downloadTask: URLSessionDataTask?
     
     func load(_ from: String, animated: Bool = false) -> Void {
         
-        FSHRequest(url: from, method: .get).dataResponse { response in
-            
+        downloadTask?.cancel()
+        
+        downloadTask = FSHRequest(url: from, method: .get).dataResponse { response in
             guard
                 let data = response.data,
                 let image = UIImage(data: data),

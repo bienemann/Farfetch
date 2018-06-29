@@ -39,13 +39,17 @@ class FarfetchSuperHeroesTests: XCTestCase {
         
         let expectation = self.expectation(description: "")
         
-        MockMarvelAPI.getCharacters { (characters, error) in
+        MockMarvelAPI.getCharacters { (characters, total, error) in
             expectation.fulfill()
             XCTAssert(characters?.first?.name == "TESTMAN")
         }
         
         self.wait(for: [expectation], timeout: 0.5)
 
+    }
+    
+    func testPagination() {
+        XCTFail()
     }
     
     func testComics() {

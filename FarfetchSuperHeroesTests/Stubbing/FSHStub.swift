@@ -137,13 +137,17 @@ class MockMarvelAPI: MarvelAPI {
         return MockMarvelAPI()
     }
     
-    override func get<T>(_ endpoint: String, handler: @escaping (T?, Error?) -> Void) where T : Decodable {
+    override func get<T>(_ endpoint: String,
+                         params: [String : Any?],
+                         headers: [String : String],
+                         handler: @escaping (T?, Error?) -> Void) where T : Decodable {
+        
         let url = MarvelAPI.baseURL + endpoint
         
         FakeFSHJSONRequest<T>(url: url,
                               method: .get,
-                              params: params(),
-                              headers: headers())
+                              params: params,
+                              headers: headers)
             .jsonResponse { response in
                 
                 switch response.result {

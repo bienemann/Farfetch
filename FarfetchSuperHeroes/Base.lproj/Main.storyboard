@@ -61,7 +61,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ky7-kY-cr4">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rGp-7B-nwM">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rGp-7B-nwM" customClass="SelfDownloadingImageView" customModule="FarfetchSuperHeroes" customModuleProvider="target">
                                         <rect key="frame" x="5" y="5" width="365" height="365"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="rGp-7B-nwM" secondAttribute="height" multiplier="1:1" id="aZ7-RO-hdd"/>

@@ -21,16 +21,16 @@ protocol FSHRequestProtocol {
     
     var url: String { get set }
     var method: HTTPMethod { get set }
-    var params: [String: Any?]? { get set }
+    var params: [String: LosslessStringConvertible?]? { get set }
     var headers: [String: String]? { get set }
     
-    init(url: String, method: HTTPMethod, params: [String: Any?]?, headers: [String: String]?)
+    init(url: String, method: HTTPMethod, params: [String: LosslessStringConvertible?]?, headers: [String: String]?)
     init(url: String, method: HTTPMethod)
 }
 
 extension FSHRequestProtocol {
     
-    func dataResponse(_ handler: @escaping (FSHDataResponse<Any>) -> Void) {
+    func dataResponse(_ handler: @escaping (FSHDataResponse<Any>) -> Void) -> URLSessionDataTask? {
         
         let successBlock: (Data) -> Void = { data in
             let response: FSHDataResponse<Any> =
@@ -39,7 +39,7 @@ extension FSHRequestProtocol {
             handler(response)
         }
         
-        FSHNetworkDispatcher<Self>().dispatch(self, success: successBlock) { (error) in
+        return FSHNetworkDispatcher<Self>().dispatch(self, success: successBlock) { (error) in
             let response: FSHDataResponse<Any> =
                 FSHDataResponse(result: .failure(error),
                                 data: nil, error: error, json: nil)
@@ -94,12 +94,12 @@ class FSHRequest: FSHRequestProtocol {
     
     var url: String
     var method: HTTPMethod
-    var params: [String : Any?]?
+    var params: [String : LosslessStringConvertible?]?
     var headers: [String : String]?
     
     required init(url: String,
                   method: HTTPMethod,
-                  params: [String: Any?]? = nil,
+                  params: [String: LosslessStringConvertible?]? = nil,
                   headers: [String: String]? = nil) {
         
         self.url = url

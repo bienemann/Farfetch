@@ -11,7 +11,7 @@ import UIKit
 
 class HeroMainCell: UITableViewCell {
     
-    @IBOutlet weak var imgThumb: UIImageView!
+    @IBOutlet weak var imgThumb: SelfDownloadingImageView!
     @IBOutlet weak var lblName: ComicLabel!
     @IBOutlet weak var viewComicFrame: UIView!
     

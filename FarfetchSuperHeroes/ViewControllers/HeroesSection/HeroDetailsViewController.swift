@@ -28,7 +28,7 @@ struct DetailsCollection {
 
 class HeroDetailsViewController: UIViewController {
     
-    @IBOutlet weak var imgThumbnail: UIImageView!
+    @IBOutlet weak var imgThumbnail: SelfDownloadingImageView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var viwInfo: UIView!
     @IBOutlet weak var stackInfo: UIStackView!
@@ -55,6 +55,7 @@ class HeroDetailsViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        URLSession.shared.invalidateAndCancel()
         viwLoadingView.stop()
     }
     

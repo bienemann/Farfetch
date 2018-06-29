@@ -34,6 +34,8 @@
 		9D8AE23520E3F73000258704 /* UIImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8AE23420E3F73000258704 /* UIImageDownloader.swift */; };
 		9D8AE23A20E4036600258704 /* FSHLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8AE23920E4036600258704 /* FSHLoading.swift */; };
 		9D8AE23C20E4043800258704 /* FSHLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8AE23B20E4043800258704 /* FSHLoadingView.xib */; };
+		9D97473020E6C29E000A47E4 /* PaginationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D97472F20E6C29E000A47E4 /* PaginationCell.swift */; };
+		9D97473220E6C2D4000A47E4 /* PaginationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D97473120E6C2D4000A47E4 /* PaginationCell.xib */; };
 		9DC08DA620E5605F005A5BA3 /* DetailsStack.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DC08DA520E5605F005A5BA3 /* DetailsStack.xib */; };
 		9DE99BA920E460040017D659 /* ComicLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE99BA820E460040017D659 /* ComicLabel.swift */; };
 		9DE99BB020E466860017D659 /* KOMTXTK_.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DE99BAC20E466850017D659 /* KOMTXTK_.ttf */; };
@@ -97,6 +99,8 @@
 		9D8AE23420E3F73000258704 /* UIImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageDownloader.swift; sourceTree = "<group>"; };
 		9D8AE23920E4036600258704 /* FSHLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHLoading.swift; sourceTree = "<group>"; };
 		9D8AE23B20E4043800258704 /* FSHLoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FSHLoadingView.xib; sourceTree = "<group>"; };
+		9D97472F20E6C29E000A47E4 /* PaginationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationCell.swift; sourceTree = "<group>"; };
+		9D97473120E6C2D4000A47E4 /* PaginationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaginationCell.xib; sourceTree = "<group>"; };
 		9DC08DA520E5605F005A5BA3 /* DetailsStack.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsStack.xib; sourceTree = "<group>"; };
 		9DE99BA820E460040017D659 /* ComicLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicLabel.swift; sourceTree = "<group>"; };
 		9DE99BAC20E466850017D659 /* KOMTXTK_.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KOMTXTK_.ttf; sourceTree = "<group>"; };
@@ -273,6 +277,8 @@
 			children = (
 				9D87B91920E4522200194A4F /* HeroMainCell.xib */,
 				9D87B91B20E4559B00194A4F /* HeroMainCell.swift */,
+				9D97473120E6C2D4000A47E4 /* PaginationCell.xib */,
+				9D97472F20E6C29E000A47E4 /* PaginationCell.swift */,
 			);
 			path = TableCells;
 			sourceTree = "<group>";
@@ -421,6 +427,7 @@
 				9DE99BB020E466860017D659 /* KOMTXTK_.ttf in Resources */,
 				9DE99BB820E523EB0017D659 /* DetailView.xib in Resources */,
 				9D8AE23C20E4043800258704 /* FSHLoadingView.xib in Resources */,
+				9D97473220E6C2D4000A47E4 /* PaginationCell.xib in Resources */,
 				9DE99BB220E466860017D659 /* KOMTXTKI.ttf in Resources */,
 				9DC08DA620E5605F005A5BA3 /* DetailsStack.xib in Resources */,
 				9DE99BB320E466860017D659 /* KOMTXKBI.ttf in Resources */,
@@ -456,6 +463,7 @@
 				9D7BF90620E3CFB60034FC9F /* MarvelTypedURL.swift in Sources */,
 				9D7BF90020E3CF1A0034FC9F /* MarvelCharacter.swift in Sources */,
 				9D52292920E2C2440091A227 /* AppDelegate.swift in Sources */,
+				9D97473020E6C29E000A47E4 /* PaginationCell.swift in Sources */,
 				9D7BF8FE20E3CA370034FC9F /* FSHJSONDecoder.swift in Sources */,
 				9D73883620E33631009DB81F /* MD5.swift in Sources */,
 				9DE99BC220E543B50017D659 /* MarvelSerie.swift in Sources */,
