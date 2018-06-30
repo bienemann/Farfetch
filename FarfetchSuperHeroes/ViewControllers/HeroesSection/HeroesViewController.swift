@@ -7,16 +7,22 @@
 //
 
 import UIKit
+import CoreGraphics
 
 class HeroesViewController: UIViewController {
     
     @IBOutlet weak var heroesList: UITableView!
+    @IBOutlet weak var searchBarView: UIView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBarHeight: NSLayoutConstraint!
     
     var heroes = [MarvelCharacter]()
     var selectedIndex: IndexPath?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setupSearch()
         
         self.heroesList.dataSource = self
         self.heroesList.delegate = self
@@ -26,7 +32,6 @@ class HeroesViewController: UIViewController {
                                  forCellReuseIdentifier: "hero_main_cell")
         self.heroesList.register(UINib(nibName: "PaginationCell", bundle: Bundle.main),
                                  forCellReuseIdentifier: "pagination_cell")
-        
         
         FSHLoading.shared.show(true)
         MarvelAPI.getCharacters { (characters, total, error) in
@@ -44,6 +49,12 @@ class HeroesViewController: UIViewController {
             self.heroesList.reloadData()
         }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        searchBarHeight.constant = 0
+        self.view.layoutIfNeeded()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -93,6 +104,39 @@ class HeroesViewController: UIViewController {
     }
 }
 
+extension HeroesViewController: UISearchBarDelegate {
+    
+    @objc func showSearch() {
+        searchBarHeight.constant = 56
+        searchBar.becomeFirstResponder()
+        UIView.animate(withDuration: 0.4) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func hideSearch() {
+        searchBarHeight.constant = 0
+        UIView.animate(withDuration: 0.4) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func setupSearch() {
+        self.navigationItem.setRightBarButton(
+            UIBarButtonItem(barButtonSystemItem: .search,
+                            target: self,
+                            action: #selector(showSearch)),
+            animated: false)
+        searchBar.searchBarStyle = .minimal
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        // perform search
+        searchBar.resignFirstResponder()
+    }
+    
+}
+
 extension HeroesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
@@ -112,6 +156,10 @@ extension HeroesViewController: UITableViewDelegate {
         
         selectedIndex = indexPath
         performSegue(withIdentifier: "hero_details", sender: heroes[indexPath.row])
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        hideSearch()
     }
 }
 

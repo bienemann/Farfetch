@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,8 +24,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eHh-qS-UVp">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YDc-4k-mLE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" placeholder="Character Name" translatesAutoresizingMaskIntoConstraints="NO" id="7GJ-dC-MwT">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="barTintColor" red="0.74117647060000003" green="0.0" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="search"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
+                                        <connections>
+                                            <outlet property="delegate" destination="9pv-A4-QxB" id="Qle-0Q-51C"/>
+                                        </connections>
+                                    </searchBar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="rwg-9t-B8H"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eHh-qS-UVp">
+                                <rect key="frame" x="0.0" y="56" width="375" height="498"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -35,7 +57,10 @@
                             <constraint firstItem="eHh-qS-UVp" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="8Ic-pJ-NKb"/>
                             <constraint firstItem="eHh-qS-UVp" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="JOn-1f-74y"/>
                             <constraint firstItem="eHh-qS-UVp" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="JZ4-7j-Ijw"/>
-                            <constraint firstItem="eHh-qS-UVp" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="g8z-ir-ak3"/>
+                            <constraint firstItem="YDc-4k-mLE" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="SmV-Ga-jub"/>
+                            <constraint firstItem="YDc-4k-mLE" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="elS-pn-ctO"/>
+                            <constraint firstItem="eHh-qS-UVp" firstAttribute="top" secondItem="YDc-4k-mLE" secondAttribute="bottom" id="g8z-ir-ak3"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="YDc-4k-mLE" secondAttribute="trailing" id="hW9-sm-MiM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -43,6 +68,9 @@
                     <navigationItem key="navigationItem" title="Characters" id="2q4-os-uue"/>
                     <connections>
                         <outlet property="heroesList" destination="eHh-qS-UVp" id="0m7-Ja-qQM"/>
+                        <outlet property="searchBar" destination="7GJ-dC-MwT" id="4G5-c4-Dgh"/>
+                        <outlet property="searchBarHeight" destination="rwg-9t-B8H" id="Z2b-U0-0Oh"/>
+                        <outlet property="searchBarView" destination="YDc-4k-mLE" id="5Xl-bk-z02"/>
                         <segue destination="h5j-PF-7Xx" kind="show" identifier="hero_details" id="GVa-R8-tqz"/>
                     </connections>
                 </viewController>
@@ -71,7 +99,7 @@
                                         <rect key="frame" x="-2" y="390" width="379" height="164"/>
                                         <subviews>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[ no data found ]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjB-gL-jne">
-                                                <rect key="frame" x="131" y="72.5" width="117.5" height="19"/>
+                                                <rect key="frame" x="133.5" y="72.5" width="113" height="19"/>
                                                 <fontDescription key="fontDescription" name="KomikaTextKaps" family="Komika Text Kaps" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -80,7 +108,7 @@
                                                 <rect key="frame" x="69" y="18" width="240" height="128"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading hero data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BwL-Fl-z4v">
-                                                        <rect key="frame" x="77" y="57.5" width="86" height="13"/>
+                                                        <rect key="frame" x="80" y="57.5" width="80" height="13"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="13" id="16A-Fl-5MW"/>
                                                         </constraints>
@@ -126,7 +154,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hero Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWb-Rw-XhJ" customClass="ComicLabel" customModule="FarfetchSuperHeroes" customModuleProvider="target">
-                                        <rect key="frame" x="-2" y="375" width="98.5" height="30"/>
+                                        <rect key="frame" x="-2" y="375" width="86.5" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="QwG-fq-eyi"/>
