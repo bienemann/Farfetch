@@ -173,7 +173,12 @@ extension HeroesViewController: UISearchBarDelegate {
     
     @objc func endSearch() {
         
-        if searchTerm == nil { return }
+        if searchTerm == nil {
+            hideSearch()
+            self.navigationItem.setRightBarButton(searchButton, animated: true)
+            searchBar.resignFirstResponder()
+            return
+        }
         
         searchTerm = nil
         searchBar.text = nil
