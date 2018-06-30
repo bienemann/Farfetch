@@ -152,7 +152,7 @@ class DetailsTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
             return nil
         }
         
-        copiedObj.removeConstraints(copiedObj.constraints)
+        copiedObj.translatesAutoresizingMaskIntoConstraints = true
         return copiedObj
     }
     
