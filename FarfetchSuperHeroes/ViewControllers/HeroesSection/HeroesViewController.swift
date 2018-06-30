@@ -18,10 +18,16 @@ class HeroesViewController: UIViewController {
     
     var heroes = [MarvelCharacter]()
     var selectedIndex: IndexPath?
+    var searchTerm: String?
+    var pagingEnded: Bool = false
+    
+    var searchButton: UIBarButtonItem!
+    var cancelSearchButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.buildIcons()
         self.setupSearch()
         
         self.heroesList.dataSource = self
@@ -34,19 +40,9 @@ class HeroesViewController: UIViewController {
                                  forCellReuseIdentifier: "pagination_cell")
         
         FSHLoading.shared.show(true)
-        MarvelAPI.getCharacters { (characters, total, error) in
+        MarvelAPI.getCharacters { [weak self] (characters, total, error) in
             FSHLoading.shared.dismiss(true)
-            
-            guard
-                let characters = characters,
-                error == nil
-            else {
-                // TODO manage errors
-                return
-            }
-            
-            self.heroes = characters
-            self.heroesList.reloadData()
+            self?.firstLoad(characters, total, error)
         }
         
     }
@@ -73,35 +69,95 @@ class HeroesViewController: UIViewController {
     func loadMoreHeroes(_ paginationCell: PaginationCell) {
         
         paginationCell.startLoading()
+        let page = Int(floor(Double(heroes.count)*0.05))
+        
+        guard let search = searchTerm, !search.isEmpty else {
+            MarvelAPI
+                .getCharacters(page, handler: { [weak self] (characters, total, error) in
+                    paginationCell.stopLoading()
+                    self?.pagingLoad(characters, total, error)
+                })
+            return
+        }
         
         MarvelAPI
-        .getCharacters(Int(floor(Double(heroes.count)*0.05)),
-                       handler: { [weak self] (characters, total, error) in
-                        
-                        paginationCell.stopLoading()
-                                    
-                        guard
-                            let characters = characters,
-                            let heroesList = self?.heroesList,
-                            let heroesCount = self?.heroes.count,
-                            error == nil
-                            else {
-                                // TODO manage errors
-                                return
-                        }
-                        
-                        let heroesListDelta = (heroesCount..<heroesCount + characters.count)
-                        let indexes = heroesListDelta.map { IndexPath(row: $0, section: 0) }
-                        self?.heroes.append(contentsOf: characters)
-                        
-                        // Insert new rows animated
-                        heroesList.performBatchUpdates({
-                            heroesList.insertRows(at: indexes, with: .right)
-                        }, completion: nil)
-                                    
+            .searchCharacter(name: search, page: page) { [weak self] (characters, total, error) in
+                paginationCell.stopLoading()
+                self?.pagingLoad(characters, total, error)
+        }
+        
+        
+        
+    }
+}
+
+extension HeroesViewController { // Network
+    
+    func pagingLoad(_ characters: [MarvelCharacter]?, _ total: Int?, _ error: Error?) {
+        
+        guard
+            let characters = characters,
+            error == nil
+            else {
+                // TODO manage errors
+                return
+        }
+        
+        if total != nil && heroes.count >= total! {
+            // no more pages to load
+            pagingEnded = true
+            
+            if let pagingCell = heroesList.cellForRow(
+                at: IndexPath(row: heroes.count, section: 0)
+            ) as? PaginationCell {
+                pagingCell.noMoreResults()
+            }
+            
+            return
+        }
+        
+        let heroesListDelta = (heroes.count..<heroes.count + characters.count)
+        let indexes = heroesListDelta.map { IndexPath(row: $0, section: 0) }
+        heroes.append(contentsOf: characters)
+        
+        let previousContentSize = heroesList.contentSize
+        
+        // Insert new rows animated
+        heroesList.performBatchUpdates({
+            heroesList.insertRows(at: indexes, with: .right)
+        }, completion: { finished in
+            
+            //if at bottom, scroll last added item to top
+            let tableViewHeight = self.heroesList.frame.size.height
+            if self.heroesList.contentOffset.y == (previousContentSize.height - tableViewHeight) {
+                let firstNewRow = self.heroes.count - characters.count
+                self.heroesList.scrollToRow(at: IndexPath(row: firstNewRow, section: 0),
+                                            at: .top, animated: true)
+            }
+            
         })
         
     }
+    
+    func firstLoad(_ characters: [MarvelCharacter]?, _ total: Int?, _ error: Error?) {
+    
+        pagingEnded = false
+        
+        guard
+            let characters = characters,
+            error == nil
+            else {
+                // TODO manage errors
+                return
+        }
+        
+        self.heroes = characters
+        self.heroesList.reloadData()
+
+    }
+    
+    
+    
 }
 
 extension HeroesViewController: UISearchBarDelegate {
@@ -109,9 +165,31 @@ extension HeroesViewController: UISearchBarDelegate {
     @objc func showSearch() {
         searchBarHeight.constant = 56
         searchBar.becomeFirstResponder()
+        self.navigationItem.setRightBarButton(cancelSearchButton, animated: true)
         UIView.animate(withDuration: 0.4) {
             self.view.layoutIfNeeded()
         }
+    }
+    
+    @objc func endSearch() {
+        
+        if searchTerm == nil { return }
+        
+        searchTerm = nil
+        searchBar.text = nil
+        
+        hideSearch()
+        self.navigationItem.setRightBarButton(searchButton, animated: true)
+        
+        heroes.removeAll()
+        heroesList.reloadData()
+        
+        FSHLoading.shared.show(true)
+        MarvelAPI.getCharacters { [weak self] (characters, total, error) in
+            FSHLoading.shared.dismiss(true)
+            self?.firstLoad(characters, total, error)
+        }
+        
     }
     
     func hideSearch() {
@@ -121,31 +199,59 @@ extension HeroesViewController: UISearchBarDelegate {
         }
     }
     
+    func buildIcons() {
+        searchButton = UIBarButtonItem(barButtonSystemItem: .search,
+                                       target: self,
+                                       action: #selector(showSearch))
+        cancelSearchButton = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                             target: self,
+                                             action: #selector(endSearch))
+    }
+    
     func setupSearch() {
-        self.navigationItem.setRightBarButton(
-            UIBarButtonItem(barButtonSystemItem: .search,
-                            target: self,
-                            action: #selector(showSearch)),
-            animated: false)
+        self.navigationItem.setRightBarButton(searchButton,
+                                              animated: false)
         searchBar.searchBarStyle = .minimal
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         // perform search
         searchBar.resignFirstResponder()
+        guard let text = searchBar.text, !text.isEmpty else {
+            return
+        }
+        
+        heroes.removeAll()
+        heroesList.reloadData()
+        
+        searchTerm = text
+        FSHLoading.shared.show(true)
+        MarvelAPI.searchCharacter(name: text) { [weak self] (characters, total, error) in
+            FSHLoading.shared.dismiss(true)
+            self?.firstLoad(characters, total, error)
+        }
+        
     }
     
 }
 
 extension HeroesViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150.0
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 150.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.row == heroes.count {
-            guard let cell = tableView.cellForRow(at: indexPath) as? PaginationCell else {
+        
+            guard let cell = tableView.cellForRow(at: indexPath) as? PaginationCell,
+            !pagingEnded else {
+                
                 return
             }
             
@@ -167,9 +273,9 @@ extension HeroesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if heroes.count == 0 {
-           return 0
+           return 0 // show nothing
         } else {
-            return heroes.count + 1
+            return heroes.count + 1 // show paging cell
         }
         
     }
@@ -185,6 +291,7 @@ extension HeroesViewController: UITableViewDataSource {
             }
             
             cell.selectionStyle = .none
+            cell.reset()
             return cell
             
         }

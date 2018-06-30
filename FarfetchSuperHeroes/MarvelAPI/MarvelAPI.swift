@@ -76,6 +76,26 @@ open class MarvelAPI: MarvelAPIProtocol {
 
 extension MarvelAPIProtocol {
     
+    static func searchCharacter(name: String, page: Int = 0,
+                                handler: @escaping ([MarvelCharacter]?, Int?, Error?) -> Void) -> Void {
+        
+        var params = MarvelAPI.params()
+        params["limit"] = 20
+        params["offset"] = 20*page
+        params["nameStartsWith"] = name
+        
+        Self.shared.get("/v1/public/characters", params: params, headers: MarvelAPI.headers()) {
+            (response: MarvelObject<MarvelCharacter>?, error: Error?) in
+            guard let responseObject = response?.data?.results else {
+                handler(nil, nil, error)
+                return
+            }
+            
+            handler(responseObject, response?.data?.total ?? nil, error)
+        }
+        
+    }
+    
     static func getCharacters(_ page: Int = 0,
                               handler: @escaping ([MarvelCharacter]?, Int?, Error?) -> Void) -> Void {
         

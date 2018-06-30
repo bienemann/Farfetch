@@ -23,6 +23,10 @@ class PaginationCell: UITableViewCell {
         viewComicFrame.layer.borderWidth = 2.0
     }
     
+    func reset() {
+        lblInfo.text = "GIVE ME MORE CHARACTERS"
+    }
+    
     func startLoading() {
         
         if isLoading { return }
@@ -43,6 +47,10 @@ class PaginationCell: UITableViewCell {
         loading.isHidden = true
         lblInfo.text = "GIVE ME MORE CHARACTERS"
         
+    }
+    
+    func noMoreResults() {
+        lblInfo.text = "NO MORE RESULTS"
     }
     
 }
