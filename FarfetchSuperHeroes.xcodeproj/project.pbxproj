@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		9D372ECD20E305320059BC3E /* FSHDispatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D372ECC20E305320059BC3E /* FSHDispatcherTests.swift */; };
 		9D372ED120E3293A0059BC3E /* MarvelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D372ED020E3293A0059BC3E /* MarvelAPI.swift */; };
+		9D3AFBB020E752CB000DD344 /* KOMTXTBI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D3AFBAC20E752C9000DD344 /* KOMTXTBI.ttf */; };
+		9D3AFBB120E752CB000DD344 /* KOMTXTB_.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D3AFBAD20E752CA000DD344 /* KOMTXTB_.ttf */; };
+		9D3AFBB220E752CB000DD344 /* KOMTXT__.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D3AFBAE20E752CA000DD344 /* KOMTXT__.ttf */; };
+		9D3AFBB320E752CB000DD344 /* KOMTXTI_.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D3AFBAF20E752CB000DD344 /* KOMTXTI_.ttf */; };
 		9D40EE5420E59F9E0048B60C /* DetailsTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D40EE5320E59F9E0048B60C /* DetailsTransitionAnimator.swift */; };
 		9D52292920E2C2440091A227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52292820E2C2440091A227 /* AppDelegate.swift */; };
 		9D52292B20E2C2440091A227 /* HeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52292A20E2C2440091A227 /* HeroesViewController.swift */; };
@@ -69,6 +73,10 @@
 /* Begin PBXFileReference section */
 		9D372ECC20E305320059BC3E /* FSHDispatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHDispatcherTests.swift; sourceTree = "<group>"; };
 		9D372ED020E3293A0059BC3E /* MarvelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPI.swift; sourceTree = "<group>"; };
+		9D3AFBAC20E752C9000DD344 /* KOMTXTBI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KOMTXTBI.ttf; sourceTree = "<group>"; };
+		9D3AFBAD20E752CA000DD344 /* KOMTXTB_.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KOMTXTB_.ttf; sourceTree = "<group>"; };
+		9D3AFBAE20E752CA000DD344 /* KOMTXT__.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KOMTXT__.ttf; sourceTree = "<group>"; };
+		9D3AFBAF20E752CB000DD344 /* KOMTXTI_.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KOMTXTI_.ttf; sourceTree = "<group>"; };
 		9D40EE5320E59F9E0048B60C /* DetailsTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTransitionAnimator.swift; sourceTree = "<group>"; };
 		9D52292520E2C2440091A227 /* FarfetchSuperHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FarfetchSuperHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D52292820E2C2440091A227 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -323,6 +331,10 @@
 		9DE99BAB20E466700017D659 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				9D3AFBAE20E752CA000DD344 /* KOMTXT__.ttf */,
+				9D3AFBAD20E752CA000DD344 /* KOMTXTB_.ttf */,
+				9D3AFBAC20E752C9000DD344 /* KOMTXTBI.ttf */,
+				9D3AFBAF20E752CB000DD344 /* KOMTXTI_.ttf */,
 				9DE99BAF20E466860017D659 /* KOMTXKBI.ttf */,
 				9DE99BAC20E466850017D659 /* KOMTXTK_.ttf */,
 				9DE99BAD20E466850017D659 /* KOMTXTKB.ttf */,
@@ -426,14 +438,18 @@
 				9D52293520E2C2460091A227 /* LaunchScreen.storyboard in Resources */,
 				9DE99BB020E466860017D659 /* KOMTXTK_.ttf in Resources */,
 				9DE99BB820E523EB0017D659 /* DetailView.xib in Resources */,
+				9D3AFBB320E752CB000DD344 /* KOMTXTI_.ttf in Resources */,
 				9D8AE23C20E4043800258704 /* FSHLoadingView.xib in Resources */,
+				9D3AFBB020E752CB000DD344 /* KOMTXTBI.ttf in Resources */,
 				9D97473220E6C2D4000A47E4 /* PaginationCell.xib in Resources */,
 				9DE99BB220E466860017D659 /* KOMTXTKI.ttf in Resources */,
 				9DC08DA620E5605F005A5BA3 /* DetailsStack.xib in Resources */,
 				9DE99BB320E466860017D659 /* KOMTXKBI.ttf in Resources */,
 				9D52293220E2C2460091A227 /* Assets.xcassets in Resources */,
+				9D3AFBB120E752CB000DD344 /* KOMTXTB_.ttf in Resources */,
 				9D87B91A20E4522200194A4F /* HeroMainCell.xib in Resources */,
 				9D52293020E2C2440091A227 /* Main.storyboard in Resources */,
+				9D3AFBB220E752CB000DD344 /* KOMTXT__.ttf in Resources */,
 				9DE99BCE20E551FC0017D659 /* LoadingIndicatorView.xib in Resources */,
 				9DE99BB120E466860017D659 /* KOMTXTKB.ttf in Resources */,
 			);

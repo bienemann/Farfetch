@@ -99,7 +99,7 @@
                                         <rect key="frame" x="-2" y="390" width="379" height="164"/>
                                         <subviews>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[ no data found ]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjB-gL-jne">
-                                                <rect key="frame" x="133.5" y="72.5" width="113" height="19"/>
+                                                <rect key="frame" x="131.5" y="72.5" width="117.5" height="19"/>
                                                 <fontDescription key="fontDescription" name="KomikaTextKaps" family="Komika Text Kaps" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -108,7 +108,7 @@
                                                 <rect key="frame" x="69" y="18" width="240" height="128"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading hero data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BwL-Fl-z4v">
-                                                        <rect key="frame" x="80" y="57.5" width="80" height="13"/>
+                                                        <rect key="frame" x="77" y="57.5" width="86" height="13"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="13" id="16A-Fl-5MW"/>
                                                         </constraints>
@@ -154,7 +154,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hero Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWb-Rw-XhJ" customClass="ComicLabel" customModule="FarfetchSuperHeroes" customModuleProvider="target">
-                                        <rect key="frame" x="-2" y="375" width="86.5" height="30"/>
+                                        <rect key="frame" x="-2" y="375" width="98.5" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="QwG-fq-eyi"/>
