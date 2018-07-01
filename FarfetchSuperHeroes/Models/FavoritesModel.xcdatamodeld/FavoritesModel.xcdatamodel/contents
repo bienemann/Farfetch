@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17F77" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Comic" representedClassName="Comic" syncable="YES" codeGenerationType="class"/>
+    <entity name="Event" representedClassName="Event" syncable="YES" codeGenerationType="class"/>
+    <entity name="Favorite" representedClassName="Favorite" syncable="YES" codeGenerationType="class">
+        <attribute name="comics" optional="YES" syncable="YES"/>
+        <attribute name="events" optional="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="picture" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="series" optional="YES" syncable="YES"/>
+        <attribute name="stories" optional="YES" syncable="YES"/>
+        <relationship name="comic" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comic" syncable="YES"/>
+        <relationship name="event" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" syncable="YES"/>
+        <relationship name="serie" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Serie" syncable="YES"/>
+        <relationship name="story" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Story" syncable="YES"/>
+    </entity>
+    <entity name="Serie" representedClassName="Serie" syncable="YES" codeGenerationType="class"/>
+    <entity name="Story" representedClassName="Story" syncable="YES" codeGenerationType="class"/>
+    <elements>
+        <element name="Favorite" positionX="-63" positionY="-18" width="128" height="210"/>
+        <element name="Serie" positionX="-54" positionY="45" width="128" height="45"/>
+        <element name="Comic" positionX="-36" positionY="54" width="128" height="45"/>
+        <element name="Event" positionX="-18" positionY="63" width="128" height="45"/>
+        <element name="Story" positionX="0" positionY="72" width="128" height="45"/>
+    </elements>
+</model>

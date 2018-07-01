@@ -18,6 +18,7 @@ class FSHStub {
     
     static let shared = FSHStub()
     var stubs = [String: StubData]()
+    var filters = [String: StubData]()
     
     func stub(_ url: String, response filePath: String, statusCode: Int) {
         self.stubs[url] = StubData(file: filePath, statusCode: statusCode)
@@ -31,13 +32,34 @@ class FSHStub {
         self.stubs.removeAll()
     }
     
-    func data(for url: String) -> Data? {
+    func changeResultsFrom(stubURL: String, byParameter: String, value: LosslessStringConvertible,
+                           response filePath: String, statusCode: Int) {
+        
+        guard let _ = self.stubs[stubURL] else {
+            return
+        }
+        
+        self.filters[byParameter+value.description] = StubData(file: filePath, statusCode: statusCode)
+    }
+    
+    func data(for url: URL) -> Data? {
         
         guard
-            let stub = stubs[url],
-            let filePath = Bundle.init(for: FSHStub.self).path(forResource: stub.file, ofType: "json")
+            let stub = stubs[url.path],
+            var filePath = Bundle.init(for: FSHStub.self).path(forResource: stub.file, ofType: "json")
         else {
             return nil
+        }
+        
+        if url.query != nil {
+            if let existingFilter = filters.first(where: { (filter, _) -> Bool in
+                return url.query!.range(of: filter) != nil
+            }) {
+                if let filterPath = Bundle.init(for: FSHStub.self)
+                    .path(forResource: existingFilter.value.file, ofType: "json") {
+                    filePath = filterPath
+                }
+            }
         }
         
         let url = URL(fileURLWithPath: filePath)
@@ -52,12 +74,11 @@ class FSHStub {
 }
 
 class FakeDispatcher<T: FSHRequestProtocol>: FSHNetworkDispatcher<T> {
-    
-    override func dispatch(_ request: T,
+
+    @discardableResult override func dispatch(_ request: T,
                            success: @escaping (Data) -> Void,
-                           failure: @escaping (Error) -> Void) {
+                           failure: @escaping (Error) -> Void) -> URLSessionDataTask? {
         
-        NetworkConstants.netQueue.async {
             
             do {
                 let urlRequest = try self.buildRequest(from: request)
@@ -66,14 +87,14 @@ class FakeDispatcher<T: FSHRequestProtocol>: FSHNetworkDispatcher<T> {
                     DispatchQueue.main.async {
                         failure(FSHNetworkError.invalidURL)
                     }
-                    return
+                    return nil
                 }
                 
-                if let responseData = FSHStub.shared.data(for: url.path) {
+                if let responseData = FSHStub.shared.data(for: url) {
                     DispatchQueue.main.async {
                         success(responseData)
                     }
-                    return
+                    return nil
                 }
                 
                 DispatchQueue.main.async {
@@ -85,9 +106,10 @@ class FakeDispatcher<T: FSHRequestProtocol>: FSHNetworkDispatcher<T> {
                 DispatchQueue.main.async {
                     failure(error)
                 }
-                return
+                return nil
             }
-        }
+        
+        return nil
         
     }
     
@@ -138,7 +160,7 @@ class MockMarvelAPI: MarvelAPI {
     }
     
     override func get<T>(_ endpoint: String,
-                         params: [String : Any?],
+                         params: [String : LosslessStringConvertible?],
                          headers: [String : String],
                          handler: @escaping (T?, Error?) -> Void) where T : Decodable {
         

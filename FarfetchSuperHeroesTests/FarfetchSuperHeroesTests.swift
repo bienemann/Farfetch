@@ -49,7 +49,23 @@ class FarfetchSuperHeroesTests: XCTestCase {
     }
     
     func testPagination() {
-        XCTFail()
+        
+        FSHStub.shared.stub("/v1/public/characters",
+                            response: "characterMock02",
+                            statusCode: 200)
+        FSHStub.shared.changeResultsFrom(stubURL: "/v1/public/characters",
+                                         byParameter: "offset", value: 20,
+                                         response: "characterMock02", statusCode: 200)
+        
+        let expectation = self.expectation(description: "")
+        
+        MockMarvelAPI
+            .getCharacters(1, handler: { (characters, total, error) in
+                expectation.fulfill()
+                XCTAssert(characters?.first?.id == 1011194)
+            })
+        
+        self.wait(for: [expectation], timeout: 0.5)
     }
     
     func testComics() {

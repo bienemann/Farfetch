@@ -24,6 +24,11 @@
 		9D52294C20E2C43C0091A227 /* FSHConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52294B20E2C43C0091A227 /* FSHConstants.swift */; };
 		9D52294E20E2C5480091A227 /* FSHRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52294D20E2C5480091A227 /* FSHRequest.swift */; };
 		9D52295120E2E2790091A227 /* FSHDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52295020E2E2790091A227 /* FSHDispatcher.swift */; };
+		9D67F8D520E9479200C70F43 /* FavoriteObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D67F8D420E9479200C70F43 /* FavoriteObject.swift */; };
+		9D67F90920E954F400C70F43 /* favorites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D67F90820E954F400C70F43 /* favorites.plist */; };
+		9D67F90B20E95E2200C70F43 /* FSHFavoriteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D67F90A20E95E2200C70F43 /* FSHFavoriteTests.swift */; };
+		9D67F90D20E95EF100C70F43 /* testFavorites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D67F90C20E95EF100C70F43 /* testFavorites.plist */; };
+		9D67F90F20E97E0500C70F43 /* characterMock02.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D67F90E20E97E0500C70F43 /* characterMock02.json */; };
 		9D73883620E33631009DB81F /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D73883520E33631009DB81F /* MD5.swift */; };
 		9D73883920E3BC07009DB81F /* MarvelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D73883820E3BC07009DB81F /* MarvelObject.swift */; };
 		9D7BF8FE20E3CA370034FC9F /* FSHJSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7BF8FD20E3CA370034FC9F /* FSHJSONDecoder.swift */; };
@@ -92,6 +97,11 @@
 		9D52294B20E2C43C0091A227 /* FSHConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHConstants.swift; sourceTree = "<group>"; };
 		9D52294D20E2C5480091A227 /* FSHRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHRequest.swift; sourceTree = "<group>"; };
 		9D52295020E2E2790091A227 /* FSHDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHDispatcher.swift; sourceTree = "<group>"; };
+		9D67F8D420E9479200C70F43 /* FavoriteObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteObject.swift; sourceTree = "<group>"; };
+		9D67F90820E954F400C70F43 /* favorites.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = favorites.plist; sourceTree = "<group>"; };
+		9D67F90A20E95E2200C70F43 /* FSHFavoriteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSHFavoriteTests.swift; sourceTree = "<group>"; };
+		9D67F90C20E95EF100C70F43 /* testFavorites.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = testFavorites.plist; sourceTree = "<group>"; };
+		9D67F90E20E97E0500C70F43 /* characterMock02.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = characterMock02.json; sourceTree = "<group>"; };
 		9D73883220E3339B009DB81F /* FarfetchSuperHeroes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FarfetchSuperHeroes-Bridging-Header.h"; sourceTree = "<group>"; };
 		9D73883520E33631009DB81F /* MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
 		9D73883820E3BC07009DB81F /* MarvelObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelObject.swift; sourceTree = "<group>"; };
@@ -211,6 +221,8 @@
 				9D52294120E2C2470091A227 /* Info.plist */,
 				9D52293F20E2C2470091A227 /* FarfetchSuperHeroesTests.swift */,
 				9D372ECC20E305320059BC3E /* FSHDispatcherTests.swift */,
+				9D67F90A20E95E2200C70F43 /* FSHFavoriteTests.swift */,
+				9D67F90C20E95EF100C70F43 /* testFavorites.plist */,
 			);
 			path = FarfetchSuperHeroesTests;
 			sourceTree = "<group>";
@@ -223,6 +235,14 @@
 				9D8AE23420E3F73000258704 /* UIImageDownloader.swift */,
 			);
 			path = BaseNetworking;
+			sourceTree = "<group>";
+		};
+		9D67F8D320E9476D00C70F43 /* FavoritesEngine */ = {
+			isa = PBXGroup;
+			children = (
+				9D67F8D420E9479200C70F43 /* FavoriteObject.swift */,
+			);
+			path = FavoritesEngine;
 			sourceTree = "<group>";
 		};
 		9D73883720E3BBE0009DB81F /* Models */ = {
@@ -258,6 +278,7 @@
 				9DE99BC520E545120017D659 /* seriesMock.json */,
 				9DE99BC920E5459F0017D659 /* eventsMock.json */,
 				9DE99BCB20E545E00017D659 /* storiesMock.json */,
+				9D67F90E20E97E0500C70F43 /* characterMock02.json */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -313,6 +334,7 @@
 		9DE99BA720E45FF10017D659 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				9D67F8D320E9476D00C70F43 /* FavoritesEngine */,
 				9D40EE5220E59F890048B60C /* Custom Transition */,
 				9D8AE23820E4034000258704 /* Loading View */,
 				9DE99BA820E460040017D659 /* ComicLabel.swift */,
@@ -324,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				9DE99BAB20E466700017D659 /* Fonts */,
+				9D67F90820E954F400C70F43 /* favorites.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -447,6 +470,7 @@
 				9DE99BB320E466860017D659 /* KOMTXKBI.ttf in Resources */,
 				9D52293220E2C2460091A227 /* Assets.xcassets in Resources */,
 				9D3AFBB120E752CB000DD344 /* KOMTXTB_.ttf in Resources */,
+				9D67F90920E954F400C70F43 /* favorites.plist in Resources */,
 				9D87B91A20E4522200194A4F /* HeroMainCell.xib in Resources */,
 				9D52293020E2C2440091A227 /* Main.storyboard in Resources */,
 				9D3AFBB220E752CB000DD344 /* KOMTXT__.ttf in Resources */,
@@ -459,10 +483,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D67F90F20E97E0500C70F43 /* characterMock02.json in Resources */,
 				9DE99BCC20E545E00017D659 /* storiesMock.json in Resources */,
 				9DE99BC620E545120017D659 /* seriesMock.json in Resources */,
 				9D7BF90C20E3DD9D0034FC9F /* characterMock01.json in Resources */,
 				9DE99BCA20E5459F0017D659 /* eventsMock.json in Resources */,
+				9D67F90D20E95EF100C70F43 /* testFavorites.plist in Resources */,
 				9DE99BBC20E5265F0017D659 /* comicsMock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,6 +504,7 @@
 				9DE99BC020E5439C0017D659 /* MarvelEvent.swift in Sources */,
 				9D7BF90620E3CFB60034FC9F /* MarvelTypedURL.swift in Sources */,
 				9D7BF90020E3CF1A0034FC9F /* MarvelCharacter.swift in Sources */,
+				9D67F8D520E9479200C70F43 /* FavoriteObject.swift in Sources */,
 				9D52292920E2C2440091A227 /* AppDelegate.swift in Sources */,
 				9D97473020E6C29E000A47E4 /* PaginationCell.swift in Sources */,
 				9D7BF8FE20E3CA370034FC9F /* FSHJSONDecoder.swift in Sources */,
@@ -508,6 +535,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D7BF90820E3D1490034FC9F /* FSHStub.swift in Sources */,
+				9D67F90B20E95E2200C70F43 /* FSHFavoriteTests.swift in Sources */,
 				9D372ECD20E305320059BC3E /* FSHDispatcherTests.swift in Sources */,
 				9D52294020E2C2470091A227 /* FarfetchSuperHeroesTests.swift in Sources */,
 			);
