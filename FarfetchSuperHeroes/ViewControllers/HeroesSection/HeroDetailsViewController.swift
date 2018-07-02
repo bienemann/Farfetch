@@ -42,7 +42,6 @@ class HeroDetailsViewController: UIViewController {
     
     var hero: MarvelCharacter? = nil
     var detailsCollection = DetailsCollection()
-    var favorite = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +54,11 @@ class HeroDetailsViewController: UIViewController {
         drawImageFrame()
         downloadAllDetails()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewFavContainter.setFavoriteImage(isFavorite())
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -83,11 +87,19 @@ class HeroDetailsViewController: UIViewController {
 extension HeroDetailsViewController: FavContainerProtocol {
     
     func isFavorite() -> Bool {
-        return favorite
+        return FavoritesManager.shared.index.contains(hero!.id!)
     }
     
     func didTouchFav(container: FavContainer) {
-        favorite = !favorite
+        
+        if isFavorite() {
+            FavoritesManager.shared.removeFavorite(byID: hero!.id!)
+        } else {
+            let fav = Favorite(id: hero!.id!,
+                               name: hero!.name!,
+                               picture: hero!.thumbnail!.url())
+            FavoritesManager.shared.saveFavorite(fav)
+        }
     }
     
 }

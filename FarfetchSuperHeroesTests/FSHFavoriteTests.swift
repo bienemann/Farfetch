@@ -26,12 +26,10 @@ class FSHFavoriteTests: XCTestCase {
 
     func testSavingFavorites() {
         
-        let fav01 = Favorite(111)
-        fav01.name = "testman"
+        let fav01 = Favorite(id: 111, name: "testman", picture: "picture url")
         FavoritesManager.shared.saveFavorite(fav01)
         
-        let fav02 = Favorite(112)
-        fav02.name = "testman02"
+        let fav02 = Favorite(id: 112, name: "testman02", picture: "picture url")
         FavoritesManager.shared.saveFavorite(fav02)
         
         guard let favorites = FavoritesManager.shared.openFavorites() else {
@@ -47,12 +45,10 @@ class FSHFavoriteTests: XCTestCase {
     
     func testList() {
         
-        let fav01 = Favorite(111)
-        fav01.name = "testman"
+        let fav01 = Favorite(id: 111, name: "testman", picture: "picture url")
         FavoritesManager.shared.saveFavorite(fav01)
         
-        let fav02 = Favorite(112)
-        fav02.name = "testman02"
+        let fav02 = Favorite(id: 112, name: "testman02", picture: "picture url")
         FavoritesManager.shared.saveFavorite(fav02)
         
         let names = FavoritesManager.shared.all.reduce("") { (result, favorite) -> String in
@@ -64,12 +60,10 @@ class FSHFavoriteTests: XCTestCase {
     
     func testRemove() {
         
-        let fav01 = Favorite(111)
-        fav01.name = "testman"
+        let fav01 = Favorite(id: 111, name: "testman", picture: "picture url")
         FavoritesManager.shared.saveFavorite(fav01)
         
-        let fav02 = Favorite(112)
-        fav02.name = "testman02"
+        let fav02 = Favorite(id: 112, name: "testman02", picture: "picture url")
         FavoritesManager.shared.saveFavorite(fav02)
         
         XCTAssert(FavoritesManager.shared.all.count == 2)

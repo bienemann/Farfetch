@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+protocol HeroCellProtocol: class {
+    func toggleFavoriteIn(_ cell: HeroMainCell) -> Bool
+}
+
 class HeroMainCell: UITableViewCell {
     
     @IBOutlet weak var imgThumb: SelfDownloadingImageView!
@@ -18,6 +22,7 @@ class HeroMainCell: UITableViewCell {
     @IBOutlet weak var viewFavContainter: FavContainer!
     
     var favorite = false
+    weak var delegate: HeroCellProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,16 +35,27 @@ class HeroMainCell: UITableViewCell {
         roundView.layer.borderWidth = 2.0
         
     }
+    
+    func updateFavorite(_ isFavorite: Bool) {
+        favorite = isFavorite
+        viewFavContainter.setFavoriteImage(favorite)
+    }
 }
 
 extension HeroMainCell: FavContainerProtocol {
     
     func isFavorite() -> Bool {
-        return favorite
+        return self.favorite
     }
     
     func didTouchFav(container: FavContainer) {
-        favorite = !favorite
+        guard let delegate = delegate else {
+            return
+        }
+        
+        if delegate.toggleFavoriteIn(self) {
+            favorite = !favorite
+        }
     }
     
 }

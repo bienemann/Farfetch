@@ -25,19 +25,20 @@ class FavContainer: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         imgHeart.layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        
-        if delegate?.isFavorite() ?? false {
-            self.imgHeart.image = #imageLiteral(resourceName: "red_heart")
-        } else {
-            self.imgHeart.image = #imageLiteral(resourceName: "grey_heart")
-        }
     }
     
     @IBAction func toggleFav(sender: UIButton) {
         animateToggle(toFavorite: !(delegate?.isFavorite() ?? false))
         self.delegate?.didTouchFav(container: self)
+    }
+    
+    func setFavoriteImage(_ favorite: Bool) {
+        if favorite {
+            self.imgHeart.image = #imageLiteral(resourceName: "red_heart")
+        } else {
+            self.imgHeart.image = #imageLiteral(resourceName: "grey_heart")
+        }
     }
     
     private func animateToggle(toFavorite: Bool) {

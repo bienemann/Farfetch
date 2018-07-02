@@ -108,6 +108,11 @@ class DetailsTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
             fromSnapshots[0].layer.borderColor = UIColor.black.cgColor
             fromSnapshots[0].layer.borderWidth = 2.0
             
+            // update fav icon in list
+            fromVC.heroesList.beginUpdates()
+            fromVC.heroesList.reloadRows(at: [indexPath], with: .none)
+            fromVC.heroesList.endUpdates()
+            
         }
         
         let frames = zip(fromSnapshots, toSnapshots).map { ($0.frame, $1.frame) }

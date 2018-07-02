@@ -51,6 +51,7 @@ class HeroesViewController: UIViewController {
         super.viewWillAppear(animated)
         searchBarHeight.constant = 0
         self.view.layoutIfNeeded()
+//        heroesList.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -88,6 +89,29 @@ class HeroesViewController: UIViewController {
         
         
         
+    }
+}
+
+extension HeroesViewController: HeroCellProtocol {
+    
+    func toggleFavoriteIn(_ cell: HeroMainCell) -> Bool {
+        
+        guard
+            let index = heroesList.indexPath(for: cell)
+        else {
+            return false
+        }
+        
+        if isFavorite(heroAt: index) {
+            FavoritesManager.shared.removeFavorite(byID: heroes[index.row].id!)
+        } else {
+            let fav = Favorite(id: heroes[index.row].id!,
+                               name: heroes[index.row].name!,
+                               picture: heroes[index.row].thumbnail!.url())
+            FavoritesManager.shared.saveFavorite(fav)
+        }
+        
+        return true
     }
 }
 
@@ -155,9 +179,6 @@ extension HeroesViewController { // Network
         self.heroesList.reloadData()
 
     }
-    
-    
-    
 }
 
 extension HeroesViewController: UISearchBarDelegate {
@@ -276,6 +297,11 @@ extension HeroesViewController: UITableViewDelegate {
 
 extension HeroesViewController: UITableViewDataSource {
     
+    func isFavorite(heroAt indexPath: IndexPath) -> Bool {
+        let hero = heroes[indexPath.row]
+        return FavoritesManager.shared.index.contains(hero.id!)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if heroes.count == 0 {
            return 0 // show nothing
@@ -308,7 +334,9 @@ extension HeroesViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
+        cell.delegate = self
         cell.imgThumb.image = UIImage(named: "downloadImagePlaceholder")
+        cell.updateFavorite(isFavorite(heroAt: indexPath))
         
         let hero = heroes[indexPath.row]
         cell.imgThumb.load(hero.thumbnail?.url() ?? "")
