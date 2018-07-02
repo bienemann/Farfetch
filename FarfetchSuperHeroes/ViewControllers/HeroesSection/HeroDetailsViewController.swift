@@ -37,8 +37,12 @@ class HeroDetailsViewController: UIViewController {
     @IBOutlet weak var viwLoadingView: LoadingIndicatorView!
     @IBOutlet weak var lblNoData: UILabel!
     
+    @IBOutlet weak var viewFavContainter: FavContainer!
+    @IBOutlet weak var roundView: UIView!
+    
     var hero: MarvelCharacter? = nil
     var detailsCollection = DetailsCollection()
+    var favorite = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,10 +66,28 @@ class HeroDetailsViewController: UIViewController {
     func drawImageFrame() {
         
         self.viwLoadingView.foregroundColor = UIColor.black
+        
         self.imgThumbnail.layer.borderColor = UIColor.black.cgColor
         self.imgThumbnail.layer.borderWidth = 2.0
+        
         self.viwInfo.layer.borderColor = UIColor.black.cgColor
         self.viwInfo.layer.borderWidth = 2.0
+        
+        roundView.layer.cornerRadius = roundView.frame.height/2.0
+        roundView.layer.borderColor = UIColor.black.cgColor
+        roundView.layer.borderWidth = 2.0
+    }
+    
+}
+
+extension HeroDetailsViewController: FavContainerProtocol {
+    
+    func isFavorite() -> Bool {
+        return favorite
+    }
+    
+    func didTouchFav(container: FavContainer) {
+        favorite = !favorite
     }
     
 }

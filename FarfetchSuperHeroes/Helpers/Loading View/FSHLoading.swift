@@ -95,7 +95,7 @@ class LoadingIndicatorView: UIView {
             UIView.animate(withDuration: 0.4, delay: 0, options: [.curveLinear], animations: {
                 self?.layoutIfNeeded()
             }, completion: { _ in
-                if !self!.animationStopped {
+                if self != nil && !self!.animationStopped {
                     self?.play()
                 } else {
                     return

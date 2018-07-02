@@ -14,11 +14,32 @@ class HeroMainCell: UITableViewCell {
     @IBOutlet weak var imgThumb: SelfDownloadingImageView!
     @IBOutlet weak var lblName: ComicLabel!
     @IBOutlet weak var viewComicFrame: UIView!
+    @IBOutlet weak var roundView: UIView!
+    @IBOutlet weak var viewFavContainter: FavContainer!
+    
+    var favorite = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        viewComicFrame.layer.borderColor = UIColor.black.cgColor
-        viewComicFrame.layer.borderWidth = 2.0
+        
+        imgThumb.layer.borderColor = UIColor.black.cgColor
+        imgThumb.layer.borderWidth = 2.0
+        
+        roundView.layer.cornerRadius = roundView.frame.height/2.0
+        roundView.layer.borderColor = UIColor.black.cgColor
+        roundView.layer.borderWidth = 2.0
+        
+    }
+}
+
+extension HeroMainCell: FavContainerProtocol {
+    
+    func isFavorite() -> Bool {
+        return favorite
+    }
+    
+    func didTouchFav(container: FavContainer) {
+        favorite = !favorite
     }
     
 }

@@ -26,7 +26,7 @@ class DetailsTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
     
     func transitionDuration(using
         transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.5
+        return 0.4
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -54,7 +54,8 @@ class DetailsTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
         // create a copy of the selected cell's elements
         guard
             let originCell = fromVC.heroesList.cellForRow(at: indexPath) as? HeroMainCell,
-            let originImageCopy = makeCopy(object: originCell.imgThumb)
+            let originImageCopy = makeCopy(object: originCell.imgThumb),
+            let originFavContainer = makeCopy(object: originCell.viewFavContainter)
         else {
             return
         }
@@ -62,9 +63,21 @@ class DetailsTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
         // create snapshots and calculate frames
         let labelSnapshot = originCell.lblName.snapshotView(afterScreenUpdates: transition == .out)!
         labelSnapshot.frame = container.convert(originCell.lblName.frame, from: originCell.lblName.superview)
+        
         originImageCopy.frame = originCell.imgThumb.convert(originCell.imgThumb.frame, to: container)
         originImageCopy.layer.borderColor = UIColor.black.cgColor
         originImageCopy.layer.borderWidth = 2.0
+        
+        originFavContainer.frame = originCell.viewFavContainter
+            .convert(originCell.viewFavContainter.frame, to: container)
+        originFavContainer.clipsToBounds = true
+        originFavContainer.autoresizesSubviews = false
+        
+        if let roundView = originFavContainer.subviews.first {
+            roundView.layer.cornerRadius = roundView.frame.height/2.0
+            roundView.layer.borderColor = UIColor.black.cgColor
+            roundView.layer.borderWidth = 2.0
+        }
         
         let fromSnapshots: [UIView]
         let toSnapshots: [UIView]
@@ -72,8 +85,9 @@ class DetailsTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
         switch transition {
         case .into:
             
-            fromSnapshots = [originImageCopy, labelSnapshot]
-            toSnapshots = [toVC.imgThumbnail, toVC.lblName].map { (subview: UIView) -> UIView in
+            fromSnapshots = [originImageCopy, originFavContainer, labelSnapshot]
+            toSnapshots = [toVC.imgThumbnail, toVC.viewFavContainter, toVC.lblName]
+            .map { (subview: UIView) -> UIView in
                 let snapshot = subview.snapshotView(afterScreenUpdates: true)!
                 snapshot.frame = container.convert(subview.frame, from: subview.superview)
                 return snapshot
@@ -81,8 +95,9 @@ class DetailsTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
             
         case .out:
             
-            toSnapshots = [originImageCopy, labelSnapshot]
-            fromSnapshots = [toVC.imgThumbnail, toVC.lblName].map { (subview: UIView) -> UIView in
+            toSnapshots = [originImageCopy, originFavContainer, labelSnapshot]
+            fromSnapshots = [toVC.imgThumbnail, toVC.viewFavContainter, toVC.lblName]
+                .map { (subview: UIView) -> UIView in
                 let snapshot = subview.snapshotView(afterScreenUpdates: false)!
                 snapshot.frame = container.convert(subview.frame, from: subview.superview)
                 return snapshot
@@ -110,6 +125,7 @@ class DetailsTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
         originCell.alpha = 0
         toVC.imgThumbnail.alpha = 0
         toVC.lblName.alpha = 0
+        toVC.viewFavContainter.alpha = 0
         
         UIView.animate(withDuration: self.transitionDuration(using: transitionContext),
         animations: {
@@ -135,6 +151,7 @@ class DetailsTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning
             originCell.alpha = 1
             toVC.imgThumbnail.alpha = 1
             toVC.lblName.alpha = 1
+            toVC.viewFavContainter.alpha = 1
             fromSnapshots.forEach { $0.removeFromSuperview() }
 
             transitionContext.completeTransition(finished)

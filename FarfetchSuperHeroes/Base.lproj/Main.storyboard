@@ -78,7 +78,7 @@
             </objects>
             <point key="canvasLocation" x="1637.5999999999999" y="-439.43028485757122"/>
         </scene>
-        <!--Hero Details View Controller-->
+        <!--Delegate-->
         <scene sceneID="Mow-2s-JK0">
             <objects>
                 <viewController id="h5j-PF-7Xx" customClass="HeroDetailsViewController" customModule="FarfetchSuperHeroes" customModuleProvider="target" sceneMemberID="viewController">
@@ -95,11 +95,55 @@
                                             <constraint firstAttribute="width" secondItem="rGp-7B-nwM" secondAttribute="height" multiplier="1:1" id="aZ7-RO-hdd"/>
                                         </constraints>
                                     </imageView>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lFE-Ql-8me" customClass="FavContainer" customModule="FarfetchSuperHeroes" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="5" width="365" height="365"/>
+                                        <subviews>
+                                            <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="W68-TF-e6y">
+                                                <rect key="frame" x="-9" y="-9" width="50" height="50"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grey_heart" translatesAutoresizingMaskIntoConstraints="NO" id="NfS-oU-rgv">
+                                                        <rect key="frame" x="14" y="14" width="27" height="27"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="NfS-oU-rgv" firstAttribute="top" secondItem="W68-TF-e6y" secondAttribute="top" constant="14" id="21s-8e-9SH"/>
+                                                    <constraint firstItem="NfS-oU-rgv" firstAttribute="leading" secondItem="W68-TF-e6y" secondAttribute="leading" constant="14" id="IJw-Oo-IEP"/>
+                                                    <constraint firstAttribute="trailing" secondItem="NfS-oU-rgv" secondAttribute="trailing" constant="9" id="U7w-RM-kT6"/>
+                                                    <constraint firstAttribute="width" constant="50" id="cif-7i-BbL"/>
+                                                    <constraint firstAttribute="bottom" secondItem="NfS-oU-rgv" secondAttribute="bottom" constant="9" id="cte-dU-e5J"/>
+                                                    <constraint firstAttribute="height" constant="50" id="v9F-Pw-QCy"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8yt-FI-brc">
+                                                <rect key="frame" x="-9" y="-9" width="50" height="50"/>
+                                                <connections>
+                                                    <action selector="toggleFavWithSender:" destination="lFE-Ql-8me" eventType="touchUpInside" id="fan-ml-zjx"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="W68-TF-e6y" firstAttribute="leading" secondItem="lFE-Ql-8me" secondAttribute="leading" constant="-9" id="29S-cQ-nOQ"/>
+                                            <constraint firstItem="W68-TF-e6y" firstAttribute="top" secondItem="lFE-Ql-8me" secondAttribute="top" constant="-9" id="Ixr-6i-UaK"/>
+                                            <constraint firstItem="8yt-FI-brc" firstAttribute="leading" secondItem="W68-TF-e6y" secondAttribute="leading" id="L7g-gg-BM0"/>
+                                            <constraint firstItem="8yt-FI-brc" firstAttribute="height" secondItem="W68-TF-e6y" secondAttribute="height" id="LTq-jg-6lS"/>
+                                            <constraint firstAttribute="width" secondItem="lFE-Ql-8me" secondAttribute="height" multiplier="1:1" id="bFm-80-jMC"/>
+                                            <constraint firstItem="8yt-FI-brc" firstAttribute="width" secondItem="W68-TF-e6y" secondAttribute="width" id="g95-nD-qXU"/>
+                                            <constraint firstItem="8yt-FI-brc" firstAttribute="top" secondItem="W68-TF-e6y" secondAttribute="top" id="lwP-rL-kiL"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="btnFav" destination="8yt-FI-brc" id="G3p-sl-C1B"/>
+                                            <outlet property="delegate" destination="h5j-PF-7Xx" id="7ep-2Z-cx9"/>
+                                            <outlet property="imgHeart" destination="NfS-oU-rgv" id="JF8-XX-ayG"/>
+                                            <outlet property="roundView" destination="W68-TF-e6y" id="WNA-Ui-0S7"/>
+                                        </connections>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GRi-iY-lbf">
                                         <rect key="frame" x="-2" y="390" width="379" height="164"/>
                                         <subviews>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[ no data found ]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjB-gL-jne">
-                                                <rect key="frame" x="133" y="72.5" width="113" height="19"/>
+                                                <rect key="frame" x="131" y="72.5" width="117.5" height="19"/>
                                                 <fontDescription key="fontDescription" name="KomikaTextKaps" family="Komika Text Kaps" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -108,7 +152,7 @@
                                                 <rect key="frame" x="69" y="18" width="240" height="128"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading hero data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BwL-Fl-z4v">
-                                                        <rect key="frame" x="80" y="57.5" width="80" height="13"/>
+                                                        <rect key="frame" x="77" y="57.5" width="86" height="13"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="13" id="16A-Fl-5MW"/>
                                                         </constraints>
@@ -154,7 +198,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hero Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWb-Rw-XhJ" customClass="ComicLabel" customModule="FarfetchSuperHeroes" customModuleProvider="target">
-                                        <rect key="frame" x="-2" y="375" width="86.5" height="30"/>
+                                        <rect key="frame" x="-2" y="375" width="98.5" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="QwG-fq-eyi"/>
@@ -168,8 +212,11 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="FWb-Rw-XhJ" firstAttribute="top" secondItem="rGp-7B-nwM" secondAttribute="bottom" constant="5" id="15E-EJ-Mlz"/>
+                                    <constraint firstItem="lFE-Ql-8me" firstAttribute="width" secondItem="rGp-7B-nwM" secondAttribute="width" id="6oN-dX-WGu"/>
                                     <constraint firstAttribute="trailing" secondItem="GRi-iY-lbf" secondAttribute="trailing" constant="-2" id="HEV-hM-RtV"/>
                                     <constraint firstItem="rGp-7B-nwM" firstAttribute="leading" secondItem="Ky7-kY-cr4" secondAttribute="leading" constant="5" id="ICk-5h-0RR"/>
+                                    <constraint firstItem="lFE-Ql-8me" firstAttribute="leading" secondItem="rGp-7B-nwM" secondAttribute="leading" id="IYU-oW-JMg"/>
+                                    <constraint firstItem="lFE-Ql-8me" firstAttribute="top" secondItem="rGp-7B-nwM" secondAttribute="top" id="RjR-Gs-L57"/>
                                     <constraint firstAttribute="bottom" secondItem="GRi-iY-lbf" secondAttribute="bottom" constant="-2" id="VIY-1O-92e"/>
                                     <constraint firstItem="FWb-Rw-XhJ" firstAttribute="leading" secondItem="Ky7-kY-cr4" secondAttribute="leading" constant="-2" id="Y9p-ul-Ns2"/>
                                     <constraint firstItem="GRi-iY-lbf" firstAttribute="leading" secondItem="Ky7-kY-cr4" secondAttribute="leading" constant="-2" id="c2N-K8-WT7"/>
@@ -195,7 +242,9 @@
                         <outlet property="imgThumbnail" destination="rGp-7B-nwM" id="xdx-r9-wf8"/>
                         <outlet property="lblName" destination="FWb-Rw-XhJ" id="bx1-kC-eV7"/>
                         <outlet property="lblNoData" destination="sjB-gL-jne" id="A8q-Ff-gov"/>
+                        <outlet property="roundView" destination="W68-TF-e6y" id="cXi-Uv-dcd"/>
                         <outlet property="stackInfo" destination="o9d-Gj-Vml" id="HlH-fd-Jc9"/>
+                        <outlet property="viewFavContainter" destination="lFE-Ql-8me" id="Mm6-LI-nk8"/>
                         <outlet property="viwInfo" destination="GRi-iY-lbf" id="bRm-Xb-lkc"/>
                         <outlet property="viwLoadingContainer" destination="Mrq-2g-b17" id="wBO-Y2-Z8M"/>
                         <outlet property="viwLoadingView" destination="FCt-3K-Rqp" id="xQj-lR-5Qg"/>
@@ -297,6 +346,7 @@
     </scenes>
     <resources>
         <image name="first" width="56" height="20"/>
+        <image name="grey_heart" width="600" height="600"/>
         <image name="second" width="25" height="25"/>
     </resources>
 </document>
